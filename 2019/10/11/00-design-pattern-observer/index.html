@@ -11,7 +11,7 @@
     <meta name="author" content="John Doe">
     <meta name="version" content="1.0.0">
     <meta name="keywords" content>
-    <meta name="description" content="背景描述对接公司电商商城系统，接收订单完成 MQ 消息内容，需要根据订单完成数据实现自己业务部门的一些功能，例如：用户下单满多少金额发放某个礼品；过滤订单中有某个 SKU 的商品需要给用户免费绑定虚拟会员服务等等一些功能。PS.一句话需求，根据订单 MQ 消息，执行一些特殊业务逻辑处理，业务场景比较杂，逻辑分支比较多，而且随时会新增、撤销某些业务功能。目前实现老系统实现分析这个类似的功能在老的系统是存在，以前系统中直接在一个 class 的方法中处理所有的逻辑，只是每个业务场景单独一个...">
+    <meta name="description" content="背景描述对接公司电商商城系统，接收订单完成 MQ 消息内容，需要根据订单完成数据实现自己业务部门的一些功能，例如：用户下单满多少金额发放某个礼品；过滤订单中有某个 SKU 的商品需要给用户免费绑定虚拟会员服务等等一些功能。PS.一句话需求，根据订单 MQ 消息，执行一些特殊业务逻辑处理，业务场景比较杂，逻辑分支比较多，而且随时会新增、撤销某些业务功能。目前实现老系统实现分析这个类似的功能在老的系统是存在，以前系统中直接在一个 class 的方法中处理所有的逻辑，只是每个业务场景单独一...">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 
@@ -136,6 +136,7 @@
         
         <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>对接公司电商商城系统，接收订单完成 MQ 消息内容，需要根据订单完成数据实现自己业务部门的一些功能，例如：用户下单满多少金额发放某个礼品；过滤订单中有某个 SKU 的商品需要给用户免费绑定虚拟会员服务等等一些功能。</p>
 <p><strong>PS.一句话需求，根据订单 MQ 消息，执行一些特殊业务逻辑处理，业务场景比较杂，逻辑分支比较多，而且随时会新增、撤销某些业务功能。</strong></p>
+<a id="more"></a>
 <h2 id="目前实现"><a href="#目前实现" class="headerlink" title="目前实现"></a>目前实现</h2><h3 id="老系统实现分析"><a href="#老系统实现分析" class="headerlink" title="老系统实现分析"></a>老系统实现分析</h3><p>这个类似的功能在老的系统是存在，以前系统中直接在一个 class 的方法中处理所有的逻辑，只是每个业务场景单独一个 Service，在主类中依赖所有的 Service，然后开始顺序执行所有的逻辑，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestObserver</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> AService aService;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> BService bService;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> CService cService;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 处理A场景业务</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            aService.dealBusiness(message);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            log.error(<span class="string">"Deal A Business exception -&gt; "</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 处理B场景业务</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            bService.dealBusiness(message);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            log.error(<span class="string">"Deal B Business exception -&gt; "</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 处理C场景业务</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            cService.dealBusiness(message);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            log.error(<span class="string">"Deal C Business exception -&gt; "</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>从代码实现角度来说，其实是整齐划一的，所以虽然这个代码几千行，但是改起来没难度，不过这种实现方式不能算是优秀的：</p>
 <ul>
@@ -158,8 +159,8 @@
 <p><strong>动机：</strong></p>
 <p>建立一种<font color="#FF0000">对象与对象之间的依赖关系</font>，一个对象发生改变时将自动通知其他对象，其他对象将相应做出反应。在此，发生改变的对象称为<font color="#FF0000">观察目标</font>，而被通知的对象称为<font color="#FF0000">观察者</font>，<font color="#FF0000">一个观察目标可以对应多个观察者</font>，而且这些观察者之间没有相互联系，可以根据需要<font color="#FF0000">增加和删除</font>观察者，使得系统更易于扩展，这就是观察者模式的模式动机。</p>
 <h3 id="结构与分析"><a href="#结构与分析" class="headerlink" title="结构与分析"></a>结构与分析</h3><p><strong>模式结构：</strong></p>
+<p>类图：</p>
 <p><img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/Design_Pattern_Observer_01.png" width="600px"></p>
-<p><img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/Design_Pattern_Observer_03.png" width="600px"></p>
 <p>角色：</p>
 <ul>
 <li>Subject：抽象主题（被观察者）角色把所有对观察者对象的引用保存在一个集合（比如 ArrayList 集合）里，每个主题都可以有任何数量的观察者，抽象主题提供一个接口，可以增加和删除观察者对象，抽象主题角色又叫做抽象被观察者（Observable）角色；</li>
@@ -167,6 +168,8 @@
 <li>Observer：抽象观察者，为所有的具体观察者定义一个接口，在得到主题的通知时更新自己，这个接口叫做更新接口；</li>
 <li>ConcreteObserver：具体观察者，存储与主题的状态匹配的状态，具体观察者角色实现抽象观察者角色所要求的更新接口，以便使本身的状态与主题的状态协调，如果需要，具体观察者角色可以保持一个指向具体主题对象的引用。</li>
 </ul>
+<p>JDK 对观察者模式的扩展：</p>
+<p><img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/Design_Pattern_Observer_03.png" width="600px"></p>
 <p><strong>时序图：</strong></p>
 <p><img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/Design_Pattern_Observer_02.png" width="600px"></p>
 <h3 id="优点-amp-缺点"><a href="#优点-amp-缺点" class="headerlink" title="优点 &amp; 缺点"></a>优点 &amp; 缺点</h3><p><strong>优点：</strong></p>
