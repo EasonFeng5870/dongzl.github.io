@@ -7,8 +7,8 @@
 
     
 
-    <title>基于 Redis 实现的分布式锁 | Hexo</title>
-    <meta name="author" content="John Doe">
+    <title>基于 Redis 实现的分布式锁 | 善积跬步 方以千里</title>
+    <meta name="author" content="dongzl">
     <meta name="version" content="1.0.0">
     <meta name="keywords" content>
     <meta name="description" content="背景描述业务系统网关（API）接口，负责处理客户端发送的 HTTP 请求数据，对于某些客户端的请求数据，需要控制请求的频率；在上一个请求处理完之前，接收到的下一个请求需要拒绝掉，例如，签到领礼品接口，请求到达服务端，需要发放奖品，记录日志，如果逻辑还没处理完，还没成功保存日志数据，客户端又发送了一次请求，查询日志未领取奖品，会导致重复发放奖品。PS. 举例逻辑可能比较简单，有些人会较真说需要客户端控制按钮是否可点击（有可能有恶意用户使用 HTTP 客户端工具请求接口），我们只是举例说明一...">
@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 
     
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="善积跬步 方以千里" type="application/atom+xml">
     
     
     <link rel="icon" href="/images/favicon.ico">
@@ -31,7 +31,7 @@
     <div id="nav" class="nav">
     <div class="nav-mobile">
         <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
-        <h1 class="nav-mobile-title nav-mobile-item">Hexo</h1>
+        <h1 class="nav-mobile-title nav-mobile-item">善积跬步 方以千里</h1>
         <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
     </div>
 
