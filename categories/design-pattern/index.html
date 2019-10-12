@@ -202,7 +202,8 @@
 <p><strong>动机：</strong></p>
 <p>建立一种<font color="#FF0000">对象与对象之间的依赖关系</font>，一个对象发生改变时将自动通知其他对象，其他对象将相应做出反应。在此，发生改变的对象称为<font color="#FF0000">观察目标</font>，而被通知的对象称为<font color="#FF0000">观察者</font>，<font color="#FF0000">一个观察目标可以对应多个观察者</font>，而且这些观察者之间没有相互联系，可以根据需要<font color="#FF0000">增加和删除</font>观察者，使得系统更易于扩展，这就是观察者模式的模式动机。</p>
 <h3 id="结构与分析"><a href="#结构与分析" class="headerlink" title="结构与分析"></a>结构与分析</h3><p><strong>模式结构：</strong></p>
-<p><img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/Design_Pattern_Observer_01" width="600px"></p>
+<p><img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/Design_Pattern_Observer_01.png" width="600px"></p>
+<p><img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/Design_Pattern_Observer_03.png" width="600px"></p>
 <p>角色：</p>
 <ul>
 <li>Subject：抽象主题（被观察者）角色把所有对观察者对象的引用保存在一个集合（比如 ArrayList 集合）里，每个主题都可以有任何数量的观察者，抽象主题提供一个接口，可以增加和删除观察者对象，抽象主题角色又叫做抽象被观察者（Observable）角色；</li>
@@ -211,7 +212,7 @@
 <li>ConcreteObserver：具体观察者，存储与主题的状态匹配的状态，具体观察者角色实现抽象观察者角色所要求的更新接口，以便使本身的状态与主题的状态协调，如果需要，具体观察者角色可以保持一个指向具体主题对象的引用。</li>
 </ul>
 <p><strong>时序图：</strong></p>
-<p><img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/Design_Pattern_Observer_02" width="600px"></p>
+<p><img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/Design_Pattern_Observer_02.png" width="600px"></p>
 <h3 id="优点-amp-缺点"><a href="#优点-amp-缺点" class="headerlink" title="优点 &amp; 缺点"></a>优点 &amp; 缺点</h3><p><strong>优点：</strong></p>
 <ul>
 <li>表示层和数据逻辑层的分离；</li>
