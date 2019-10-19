@@ -155,6 +155,49 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2019/10/19/06-ZooKeeper-Distributed-Queue/">从一个业务场景聊聊 ZooKeeper 消息队列使用</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://dongzl.github.io/categories/architectural-design/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-10-19T09:03:49.000Z" itemprop="datePublished">2019-10-19</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Curator/">Curator</a>, <a class="article-tag-link" href="/tags/Distributed-Queue/">Distributed Queue</a>, <a class="article-tag-link" href="/tags/ZooKeeper/">ZooKeeper</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>目前在做 APP 客户端，有个业务场景是对于登录的新用户需要做一些操作，例如初始化一些用户账户信息，同时需要给该新用户发放一些优惠，比如发放优惠券、赠送经验积分等等。对于这种功能场景一般很容易想到使用消息队列（MQ），但是考虑到目前的业务场景，每天新增的用户并不多，如果引入专门的消息队列框架（例如：RocketMQ、RabbitMQ）等感觉比较重，意义并不是很大。</p>
+<p><strong>PS. 一句话需求，新增登录用户模块要实现功能解耦，用户登录与新用户业务逻辑功能分开，想到使用消息队列机制，但是不想引入重量级 MQ 框架。</strong></p>
+        
+        <p class="article-more-link">
+            <a href="/2019/10/19/06-ZooKeeper-Distributed-Queue/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2019/10/08/00-redis-distributed-lock/">基于 Redis 实现的分布式锁</a>
         </h1>
         
