@@ -163,7 +163,7 @@
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2019-11-02T12:33:44.240Z" itemprop="datePublished">2019-11-02</time>
+    <time datetime="2019-11-02T12:39:20.695Z" itemprop="datePublished">2019-11-02</time>
 </a>
 
             
@@ -460,7 +460,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2019/09/21/00-database/">00-database</a>
+            <a href="/2019/09/20/01-online-system-frequent-full-gc-bug/">线上系统频繁Full GC问题排查</a>
         </h1>
         
         <div class="article-meta clearfix">
@@ -468,16 +468,29 @@
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2019-09-21T12:28:18.000Z" itemprop="datePublished">2019-09-21</time>
+    <time datetime="2019-09-20T07:02:03.000Z" itemprop="datePublished">2019-09-20</time>
 </a>
 
             
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Full-GC/">Full GC</a>, <a class="article-tag-link" href="/tags/HashMap/">HashMap</a>, <a class="article-tag-link" href="/tags/JVM/">JVM</a>, <a class="article-tag-link" href="/tags/MAT/">MAT</a>, <a class="article-tag-link" href="/tags/WeakHashMap/">WeakHashMap</a>, <a class="article-tag-link" href="/tags/dump/">dump</a>
+</div>
+
 
         </div>
     </header>
     
     <section class="article-body markdown-body">
         
+        <h2 id="现象描述"><a href="#现象描述" class="headerlink" title="现象描述"></a>现象描述</h2><p>线上系统刚上线后运行正常，使用一段时间后出现频繁 Full GC 现象，系统出现卡顿，但是一直没有出现内存溢出，所以设置内存溢出后生成 dump 文件无效，重启后现象消失，运行一段时间后重复出现上述问题。</p>
+        
+        <p class="article-more-link">
+            <a href="/2019/09/20/01-online-system-frequent-full-gc-bug/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
         
         
     </section>
@@ -489,7 +502,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2019/09/21/00-data-structures-algorithms/">00-data-structures-algorithms</a>
+            <a href="/2019/09/14/00-json-lib-bug-with-long-type/">json-lib 解析 Long 类型数据 Bug 排查</a>
         </h1>
         
         <div class="article-meta clearfix">
@@ -497,45 +510,29 @@
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2019-09-21T12:24:25.000Z" itemprop="datePublished">2019-09-21</time>
+    <time datetime="2019-09-14T00:10:17.000Z" itemprop="datePublished">2019-09-14</time>
 </a>
 
             
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Java/">Java</a>, <a class="article-tag-link" href="/tags/Long/">Long</a>, <a class="article-tag-link" href="/tags/json-lib/">json-lib</a>
+</div>
+
 
         </div>
     </header>
     
     <section class="article-body markdown-body">
         
+        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>在开发网文功能过程中，从阅文集团获取的网文数据内容中，定义的数据主键都是 long 数据类型，而且是以 json 格式返回的数据；在通过 json-lib 工具解析 json 的过程中，发现 json-lib 存在的一个 bug。</p>
         
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2019/09/21/00-datastructs/">00-datastructs</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://dongzl.github.io/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-09-21T12:24:03.000Z" itemprop="datePublished">2019-09-21</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
+        <p class="article-more-link">
+            <a href="/2019/09/14/00-json-lib-bug-with-long-type/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
         
         
     </section>
@@ -543,10 +540,6 @@
 
 
 
-
-<nav class="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
-</nav>
 
 
 </div>
