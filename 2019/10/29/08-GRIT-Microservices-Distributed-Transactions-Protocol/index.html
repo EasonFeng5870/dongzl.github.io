@@ -11,7 +11,7 @@
     <meta name="author" content="dongzl">
     <meta name="version" content="1.0.0">
     <meta name="keywords" content>
-    <meta name="description" content="原文链接：https://tech.ebayinc.com/engineering/grit-a-protocol-for-distributed-transactions-across-microservices/eBay 技术人员最近发布了一种称为 GRIT 分布式事务协议，该协议是为了解决跨多个底层数据库的微服务场景下分布式 ACID（原子性，一致性，隔离性，持久性）事务问题。本文描述了在 IEEE国际数据工程会议(ICDE) 2019 上发布的 GRIT 协议的基本思...">
+    <meta name="description" content="原文链接：https://tech.ebayinc.com/engineering/grit-a-protocol-for-distributed-transactions-across-microservices/eBay 技术人员最近发布了一种称为 GRIT 分布式事务协议，该协议是为了解决跨多个底层数据库的微服务场景下分布式 ACID（原子性，一致性，隔离性，持久性）事务问题。本文描述了在 IEEE国际数据工程会议(ICDE) 2019 上发布的 GRIT 协议的基本思想...">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 
@@ -140,8 +140,8 @@
 <blockquote>
 <p>eBay 技术人员最近发布了一种称为 <code>GRIT</code> 分布式事务协议，该协议是为了解决跨多个底层数据库的微服务场景下分布式 ACID（原子性，一致性，隔离性，持久性）事务问题。</p>
 </blockquote>
-<a id="more"></a>
 <p>本文描述了在 <strong>IEEE国际数据工程会议(ICDE) 2019</strong> 上发布的 GRIT 协议的基本思想，<font color="red">并且提供了一个 JanusGraph 事务性存储后端的示例，该示例实现了 GRIT 协议的一部分功能</font>。这个示例关注的是仅有单一数据库的应用，但是正如我们所说，GRIT 可以支持由多个数据库组成的系统的 ACID 事务。</p>
+<a id="more"></a>
 <h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>在 <a href="https://en.wikipedia.org/wiki/Microservices" target="_blank" rel="noopener">微服务</a> 架构中，应用程序可能会调用很多个微服务，通常这些微服务是用不同编程语言实现并且由不同的团队来维护，而且可能会使用多个数据库来实现微服务的功能。这种目前流行的架构为跨多个微服务的一致性分布式事务带来了新的挑战。支持微服务场景下的 ACID 事务是有实际需要的，但是在现有技术下实现起来是非常困难的，因为被设计用于单个数据库的分布式事务机制无法通过微服务架构轻松扩展到具有多个数据库的情况。</p>
 <p>在涉及多个独立数据库的运行环境中，传统的两阶段提交（2PC）协议[1]从本质上来说是唯一一种能够实现分布式事务功能而不会给应用系统带来额外工作量的方式。然而，由于可能存在多个协调参与者而导致的较长调用链路以及在各个阶段所需要的资源锁定，所以它在横向扩展平台中工作的并不好。另一方面，引入第三方框架[2]（例如：Saga）执行事务日志的方式将导致应用程序产生复杂的事务补偿逻辑；并且由于已经部分执行成功的事务有可能是不可逆的，所以会对业务逻辑产生影响。</p>
 <p>为了解决这些问题，我们开发了 <a href="https://ieeexplore.ieee.org/abstract/document/8731442" target="_blank" rel="noopener">GRIT</a>，一种用于全局一致性分布式事务的新协议，这个协议巧妙地结合了乐观并发控制（OCC）[3]、2PC 和 确定性数据库[4,5]的思想，首次实现了高性能，跨多个基础数据库微服务的全局一致性事务。</p>
