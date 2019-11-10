@@ -7,7 +7,7 @@
 
     
 
-    <title>Category: design-pattern | 善积跬步 方以千里</title>
+    <title>Tag: 策略模式 | 善积跬步 方以千里</title>
     <meta name="author" content="dongzl">
     <meta name="version" content="1.0.0">
     <meta name="keywords" content>
@@ -61,7 +61,7 @@
                 <span class="nav-text">架构</span>
             </a>
         
-            <a class="nav-item active" href="/categories/design-pattern">
+            <a class="nav-item" href="/categories/design-pattern">
                 <span class="nav-text">设计模式</span>
             </a>
         
@@ -69,11 +69,11 @@
                 <span class="nav-text">其他</span>
             </a>
         
-            <a class="nav-item active" href="/categories">
+            <a class="nav-item" href="/categories">
                 <span class="nav-text">分类</span>
             </a>
         
-            <a class="nav-item" href="/tags">
+            <a class="nav-item active" href="/tags">
                 <span class="nav-text">标签</span>
             </a>
         
@@ -150,91 +150,49 @@
 </header>
 
         <div id="content" class="content">
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2019/11/06/09-design-pattern-strategy/">从一个功能设计聊聊策略模式的使用</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://dongzl.github.io/categories/design-pattern/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-11-06T08:25:58.000Z" itemprop="datePublished">2019-11-06</time>
-</a>
 
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/策略枚举/">策略枚举</a>, <a class="article-tag-link" href="/tags/策略模式/">策略模式</a>, <a class="article-tag-link" href="/tags/设计模式/">设计模式</a>
+
+<div class="page-hd">
+    策略模式
+    <small>(1)</small>
 </div>
 
 
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>线上业务销售一种 VIP 虚拟卡，对于已售出的 VIP 虚拟卡在给供应商结算时需要根据销售渠道做不同区分，例如，Android 端销售的虚拟卡按实际销售金额结算；iOS端销售的虚拟卡按销售价 70% 结算（做苹果开发的都知道，苹果公司雁过拔毛，要拔走 30%）；还有就是可能与其他商品捆绑销售，捆绑销售的金额根据合作不同部门、不同商品金额都不同。目前情况即是如此，虚拟卡销售渠道很多，不同渠道结算金额不同，而且还会扩展（最近就在经历扩展，华为属于 Android 渠道，但是也开始玩苹果那套规则，拔 30% 的毛）。</p>
-<p><strong>PS. 一句话需求，销售商品结算，不同销售渠道销售金额不同，而且随时会扩展新的渠道。</strong></p>
-        
-        <p class="article-more-link">
-            <a href="/2019/11/06/09-design-pattern-strategy/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
 
+    
+    
+    
+    
+    
+    <section class="archives-wrap">
+    <div class="archive-year-wrap">
+    <a href="/archives/2019" class="page-hd">
+        2019
+    </a>
+    </div>
+    <ol class="archives">
+    
 
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
+    <li class="archive-section-item">
         
-        <h1 itemprop="name">
-            <a href="/2019/10/11/00-design-pattern-observer/">从一个功能设计聊聊观察者模式的使用</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://dongzl.github.io/categories/design-pattern/index.html">
+<article class="archive-article archive-type-post">
+    <div class="archive-article-inner">
+        <header class="archive-article-header">
+            <a class="archive-article-link" href="/2019/11/06/09-design-pattern-strategy/">从一个功能设计聊聊策略模式的使用</a>
+            <span class="archive-article-date">
+                (<a class="article-date" href="/archives/2019/11">
     
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-10-11T03:06:46.000Z" itemprop="datePublished">2019-10-11</time>
+    <time datetime="2019-11-06T08:25:58.000Z" itemprop="datePublished">11/6</time>
 </a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Observable/">Observable</a>, <a class="article-tag-link" href="/tags/Observer/">Observer</a>, <a class="article-tag-link" href="/tags/观察者模式/">观察者模式</a>, <a class="article-tag-link" href="/tags/设计模式/">设计模式</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>对接公司电商商城系统，接收订单完成 MQ 消息内容，需要根据订单完成数据实现自己业务部门的一些功能，例如：用户下单满多少金额发放某个礼品；过滤订单中有某个 SKU 的商品需要给用户免费绑定虚拟会员服务等等一些功能。</p>
-<p><strong>PS.一句话需求，根据订单 MQ 消息，执行一些特殊业务逻辑处理，业务场景比较杂，逻辑分支比较多，而且随时会新增、撤销某些业务功能。</strong></p>
-        
-        <p class="article-more-link">
-            <a href="/2019/10/11/00-design-pattern-observer/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
+)
+            </span>
+        </header>
+    </div>
 </article>
+    </li>
 
+
+</ol></section>
 
 
 
