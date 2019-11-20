@@ -11,7 +11,7 @@
     <meta name="author" content="dongzl">
     <meta name="version" content="1.0.0">
     <meta name="keywords" content>
-    <meta name="description" content="背景描述在开发网文功能过程中，从阅文集团获取的网文数据内容中，定义的数据主键都是 long 数据类型，而且是以 json 格式返回的数据；在通过 json-lib 工具解析 json 的过程中，发现 json-lib 存在的一个 bug。现象描述测试代码一12345public static void main(String args[]) &amp;#123;    String json = &#34;&amp;#123;\&#34;chapterId\&#34;:13661819409899751&amp;#125;&#34;;  ...">
+    <meta name="description" content="背景描述在开发网文功能过程中，从阅文集团获取的网文数据内容中，定义的数据主键都是 long 数据类型，而且是以 json 格式返回的数据；在通过 json-lib 工具解析 json 的过程中，发现 json-lib 存在的一个 bug。现象描述测试代码一12345public static void main(String args[]) &amp;#123;    String json = &#34;&amp;#123;\&#34;chapterId\&#34;:13661819409899751&amp;#125;&#34;;   ...">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 
@@ -136,48 +136,36 @@
         
         <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>在开发网文功能过程中，从阅文集团获取的网文数据内容中，定义的数据主键都是 long 数据类型，而且是以 json 格式返回的数据；在通过 json-lib 工具解析 json 的过程中，发现 json-lib 存在的一个 bug。</p>
 <a id="more"></a>
-
 <h2 id="现象描述"><a href="#现象描述" class="headerlink" title="现象描述"></a>现象描述</h2><h2 id="测试代码一"><a href="#测试代码一" class="headerlink" title="测试代码一"></a>测试代码一</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">    String json = <span class="string">"&#123;\"chapterId\":13661819409899751&#125;"</span>;</span><br><span class="line">    JSONObject jsonObject = JSONObject.fromObject(json);</span><br><span class="line">    System.out.println(jsonObject.getLong(<span class="string">"chapterId"</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>输出结果为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13661819409899751</span><br></pre></td></tr></table></figure>
-
 <p>上述输出结果没有问题。</p>
 <h2 id="测试代码二"><a href="#测试代码二" class="headerlink" title="测试代码二"></a>测试代码二</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">    String json = <span class="string">"&#123;\"chapterId\":\"13661819409899751\"&#125;"</span>;</span><br><span class="line">    JSONObject jsonObject = JSONObject.fromObject(json);</span><br><span class="line">    System.out.println(jsonObject.getLong(<span class="string">"chapterId"</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13661819409899752</span><br></pre></td></tr></table></figure>
-
+<p>输出结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13661819409899752</span><br></pre></td></tr></table></figure></p>
 <p>发现上述结果值是错误的，并没有获取的预期的结果值。</p>
 <h2 id="问题排查"><a href="#问题排查" class="headerlink" title="问题排查"></a>问题排查</h2><p>通过阅读 JSONObject 类中的 getLong 方法实现代码，其内部的处理逻辑如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getLong</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.verifyIsNull();</span><br><span class="line">    Object o = <span class="keyword">this</span>.get(key);</span><br><span class="line">    <span class="keyword">if</span>(o != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> o <span class="keyword">instanceof</span> Number?((Number)o).longValue():(<span class="keyword">long</span>)<span class="keyword">this</span>.getDouble(key);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> JSONException(<span class="string">"JSONObject["</span> + JSONUtils.quote(key) + <span class="string">"] is not a number."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>如果判断 o 是 Number 类型，则直接调用 Number 中的 longValue 方法，获取到 long 类型结果数值，这一步没有问题。</li>
 <li>如果判 o 断不是 Number 类型，则调用 getDouble 方法。</li>
 </ul>
 <p>getDouble 方法实现逻辑如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getDouble</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.verifyIsNull();</span><br><span class="line">    Object o = <span class="keyword">this</span>.get(key);</span><br><span class="line">    <span class="keyword">if</span>(o != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> o <span class="keyword">instanceof</span> Number?((Number)o).doubleValue():Double.parseDouble((String)o);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception var4) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> JSONException(<span class="string">"JSONObject["</span> + JSONUtils.quote(key) + <span class="string">"] is not a number."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> JSONException(<span class="string">"JSONObject["</span> + JSONUtils.quote(key) + <span class="string">"] is not a number."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>如果判断 o 是 Number 类型，则直接调用 Number 中的 doubleValue 方法，获取到 double 类型结果数值。</li>
 <li>如果判断 o 不是 Number 类型，则调用 Double.parseDouble 方法。</li>
 </ul>
 <p>在我们处理的 json 字符串中，如果为如下形式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String json = &quot;&#123;\&quot;chapterId\&quot;:13661819409899751&#125;&quot;;</span><br></pre></td></tr></table></figure>
-
 <p>json 字符串中内容不加双引号，自然当做 Number 类型来处理，直接调用 getLong 方法中直接返回 ((Number)o).longValue() 内容，所以返回的数值是没有问题的。</p>
 <p>如果我们处理的 json 字符串为如下形式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String json = &quot;&#123;\&quot;chapterId\&quot;:\&quot;13661819409899751\&quot;&#125;&quot;;</span><br></pre></td></tr></table></figure>
-
 <p>json 字符串内容加双引号，并不会当做 Number 类型来处理，最终会调用 Double.parseDouble 方法，返回一个 double 类型数值，最后在 getLong 方法中将 double 类型数值强制转换成 long 类型，其实在 Double.parseDouble 方法中已经出现了精度问题，导致数据不准确。   </p>
 <p>例如我们可以做如下测试：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//代码内容</span></span><br><span class="line">System.out.println(Double.parseDouble(<span class="string">"13661819409899751"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//结果输出</span></span><br><span class="line"><span class="number">1.3661819409899752E16</span></span><br></pre></td></tr></table></figure>
-
 <p>所以说在上述过程中由于使用 Double.parseDouble 方法引起的精度问题，导致返回数值不准确。</p>
 <h2 id="处理方式"><a href="#处理方式" class="headerlink" title="处理方式"></a>处理方式</h2><p>我们可以通过 jsonObject.getString(“chapterId”) 方式获取到字符串类型内容，然后通过</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.apache.commons.lang.math.NumberUtils.createLong(String str);</span><br></pre></td></tr></table></figure>
-
 <p>方法完成对 long 类型转换。</p>
 
         

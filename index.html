@@ -155,7 +155,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2019/11/20/test/">test</a>
+            <a href="/2019/11/20/11-Hexo-Environment-Building/">Hexo 环境搭建</a>
         </h1>
         
         <div class="article-meta clearfix">
@@ -163,30 +163,108 @@
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2019-11-20T09:44:17.000Z" itemprop="datePublished">2019-11-20</time>
+    <time datetime="2019-11-20T11:12:09.000Z" itemprop="datePublished">2019-11-20</time>
 </a>
 
             
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/MathJax/">MathJax</a>, <a class="article-tag-link" href="/tags/PlantUml/">PlantUml</a>, <a class="article-tag-link" href="/tags/flowchart/">flowchart</a>, <a class="article-tag-link" href="/tags/hexo/">hexo</a>, <a class="article-tag-link" href="/tags/mermaid/">mermaid</a>
+</div>
+
 
         </div>
     </header>
     
     <section class="article-body markdown-body">
         
-        <h2 id="111111111112222"><a href="#111111111112222" class="headerlink" title="111111111112222"></a>111111111112222</h2><div id="flowchart-0" class="flow-chart"></div>
+        <h2 id="PlantUml-安装使用"><a href="#PlantUml-安装使用" class="headerlink" title="PlantUml 安装使用"></a>PlantUml 安装使用</h2><p><strong>作用：</strong> 在 Hexo 中识别并生成由 flow 编写的图表。</p>
+<p><strong>网址：</strong> <a href="http://plantuml.com/zh/" target="_blank" rel="noopener">http://plantuml.com/zh/</a></p>
+<p><strong>Github地址：</strong> 暂无</p>
+<p><strong>Hexo插件：</strong> <a href="https://github.com/two/hexo-tag-plantuml" target="_blank" rel="noopener">two/hexo-tag-plantuml</a></p>
+<p><strong>Install：</strong> <code>npm hexo-tag-plantuml --save</code></p>
+<p><strong>示例：</strong></p>
+<img src="http://www.plantuml.com/plantuml/svg/SyfFqhLppCbCJbMmKiX8pSd91m00">
+<img src="http://www.plantuml.com/plantuml/svg/JK_12i8m3BttAnuxku4UPGoy28BCYqSlTSrqeoJI1b7musqt1q8WoKjUtelfl8qHf-j8dQAkSIEcO3sQnYpWfonBx4Amx-CGrHWM9QWy8Fr2tEB06EtJha1F2czCPozCBoLs4NeV8eIf-h6BSmPIMFHUh0vyGnuKi17j-dzfAbFkX3b9aRkm2cAMIJPbqe_LJDmidgigD-qc5t_EvsVt8hE0frwtE34Ih73K3qnkjcw-">
+<h2 id="flowchart-安装使用"><a href="#flowchart-安装使用" class="headerlink" title="flowchart 安装使用"></a>flowchart 安装使用</h2><p><strong>作用：</strong> 在 Hexo 中识别并生成由 flow 编写的图表。</p>
+<p><strong>网址：</strong> <a href="http://flowchart.js.org/" target="_blank" rel="noopener">http://flowchart.js.org/</a></p>
+<p><strong>Github地址：</strong> <a href="https://github.com/adrai/flowchart.js" target="_blank" rel="noopener">adrai/flowchart.js</a></p>
+<p><strong>Hexo插件：</strong> <a href="https://github.com/bubkoo/hexo-filter-flowchart" target="_blank" rel="noopener">bubkoo/hexo-filter-flowchart</a></p>
+<p><strong>Install：</strong> <code>npm install hexo-filter-flowchart --save</code></p>
+<p><strong>示例：</strong></p>
+<div id="flowchart-0" class="flow-chart"></div>
 
+<h2 id="mermaid-安装使用"><a href="#mermaid-安装使用" class="headerlink" title="mermaid 安装使用"></a>mermaid 安装使用</h2><p><strong>作用：</strong> 在 Hexo 中识别并生成由 mermaid 编写的图表。</p>
+<p><strong>网址：</strong> <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">https://mermaidjs.github.io/</a></p>
+<p><strong>Github地址：</strong> <a href="https://github.com/mermaid-js/mermaid" target="_blank" rel="noopener">mermaid-js/mermaid</a></p>
+<p><strong>Hexo插件：</strong> <a href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams" target="_blank" rel="noopener">webappdevelp/hexo-filter-mermaid-diagrams</a></p>
+<p><strong>Install：</strong> <code>npm install hexo-filter-mermaid-diagrams --save</code></p>
+<p><strong>示例：</strong></p>
 <pre class="mermaid">graph TD;
     A-->B;
     A-->C;
     B-->D;
     C-->D;</pre>
 
-<img src="http://www.plantuml.com/plantuml/svg/SyfFqhLppCbCJbMmKiX8pSd91m00">
+<pre class="mermaid">sequenceDiagram
+Alice->>John: Hello John, how are you?
+loop Healthcheck
+    John->>John: Fight against hypochondria
+end
+Note right of John: Rational thoughts!
+John-->>Alice: Great!
+John->>Bob: How about you?
+Bob-->>John: Jolly good!</pre>
 
-<p>$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$</p>
-<p>$MEMORY*(单节点总核数/NPROC)\leq单节点总内存$</p>
-<p>Simple inline $a = b + c$.</p>
-<p>$$\frac{\partial u}{\partial t}<br>= h^2 \left( \frac{\partial^2 u}{\partial x^2} +<br>\frac{\partial^2 u}{\partial y^2} +<br>\frac{\partial^2 u}{\partial z^2}\right)$$<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Start|past:>http://www.google.com[blank]
+<pre class="mermaid">gantt
+section Section
+Completed :done,    des1, 2014-01-06,2014-01-08
+Active        :active,  des2, 2014-01-07, 3d
+Parallel 1   :         des3, after des1, 1d
+Parallel 2   :         des4, after des1, 1d
+Parallel 3   :         des5, after des3, 1d
+Parallel 4   :         des6, after des4, 1d</pre>
+
+<pre class="mermaid">classDiagram
+Class01 <|-- averylongclass : cool <<interface>> Class01
+Class09 --> C2 : Where am i?
+Class09 --* C3
+Class09 --|> Class07
+Class07 : equals()
+Class07 : Object[] elementData
+Class01 : size()
+Class01 : int chimp
+Class01 : int gorilla
+class Class10 {
+  <<service>>
+  int id
+  size()
+}</service></|--></pre>
+
+<pre class="mermaid">stateDiagram
+[*] --> Still
+Still --> [*]
+Still --> Moving
+Moving --> Still
+Moving --> Crash
+Crash --> [*]</pre>
+
+<pre class="mermaid">pie
+"Dogs" : 386
+"Cats" : 85
+"Rats" : 15</pre>
+
+<h2 id="MathJax-安装使用"><a href="#MathJax-安装使用" class="headerlink" title="MathJax 安装使用"></a>MathJax 安装使用</h2><p><strong>作用：</strong> 在 Hexo 中识别并生成由 flow 编写的图表。</p>
+<p><strong>网址：</strong> <a href="http://flowchart.js.org/" target="_blank" rel="noopener">http://flowchart.js.org/</a></p>
+<p><strong>Github地址：</strong> <a href="https://github.com/adrai/flowchart.js" target="_blank" rel="noopener">adrai/flowchart.js</a></p>
+<p><strong>Hexo插件：</strong> <a href="https://github.com/bubkoo/hexo-filter-flowchart" target="_blank" rel="noopener">bubkoo/hexo-filter-flowchart</a></p>
+<p><strong>Install：</strong> <code>npm install hexo-filter-flowchart --save</code></p>
+<p><strong>示例：</strong></p>
+<div id="flowchart-1" class="flow-chart"></div>
+
+
+
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Start|past:>http://www.google.com[blank]
 e=>end: End:>http://www.google.com
 op1=>operation: My Operation|past
 op2=>operation: Stuff|current
@@ -200,7 +278,21 @@ st->op1(right)->cond
 cond(yes, right)->c2
 cond(no)->sub1(left)->op1
 c2(yes)->io->e
-c2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
+c2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=>start: Start|past:>http://www.google.com[blank]
+e=>end: End:>http://www.google.com
+op1=>operation: My Operation|past
+op2=>operation: Stuff|current
+sub1=>subroutine: My Subroutine|invalid
+cond=>condition: Yes
+or No?|approved:>http://www.google.com
+c2=>condition: Good idea|rejected
+io=>inputoutput: catch something...|request
+
+st->op1(right)->cond
+cond(yes, right)->c2
+cond(no)->sub1(left)->op1
+c2(yes)->io->e
+c2(no)->op2->e</textarea><textarea id="flowchart-1-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script></p>
 
         
     </section>
@@ -652,8 +744,6 @@ c2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none
         
         <blockquote>
 <p>原文链接：<a href="https://tech.ebayinc.com/engineering/grit-a-protocol-for-distributed-transactions-across-microservices/" target="_blank" rel="noopener">https://tech.ebayinc.com/engineering/grit-a-protocol-for-distributed-transactions-across-microservices/</a></p>
-</blockquote>
-<blockquote>
 <p>eBay 技术人员最近发布了一种称为 <code>GRIT</code> 分布式事务协议，该协议是为了解决跨多个底层数据库的微服务场景下分布式 ACID（原子性，一致性，隔离性，持久性）事务问题。</p>
 </blockquote>
 <p>本文描述了在 <strong>IEEE国际数据工程会议(ICDE) 2019</strong> 上发布的 GRIT 协议的基本思想，<font color="red">并且提供了一个 JanusGraph 事务性存储后端的示例，该示例实现了 GRIT 协议的一部分功能</font>。这个示例关注的是仅有单一数据库的应用，但是正如我们所说，GRIT 可以支持由多个数据库组成的系统的 ACID 事务。</p>
