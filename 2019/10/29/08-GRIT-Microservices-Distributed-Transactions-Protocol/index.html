@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 
     
 
@@ -22,11 +22,11 @@
     <link rel="icon" href="/images/favicon.ico">
     
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 <body>
 
-    <main class="app">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><main class="app">
         <header class="header clearfix">
     <div id="nav" class="nav">
     <div class="nav-mobile">
@@ -142,11 +142,13 @@
 </blockquote>
 <p>本文描述了在 <strong>IEEE国际数据工程会议(ICDE) 2019</strong> 上发布的 GRIT 协议的基本思想，<font color="red">并且提供了一个 JanusGraph 事务性存储后端的示例，该示例实现了 GRIT 协议的一部分功能</font>。这个示例关注的是仅有单一数据库的应用，但是正如我们所说，GRIT 可以支持由多个数据库组成的系统的 ACID 事务。</p>
 <a id="more"></a>
+
 <h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>在 <a href="https://en.wikipedia.org/wiki/Microservices" target="_blank" rel="noopener">微服务</a> 架构中，应用程序可能会调用很多个微服务，通常这些微服务是用不同编程语言实现并且由不同的团队来维护，而且可能会使用多个数据库来实现微服务的功能。这种目前流行的架构为跨多个微服务的一致性分布式事务带来了新的挑战。支持微服务场景下的 ACID 事务是有实际需要的，但是在现有技术下实现起来是非常困难的，因为被设计用于单个数据库的分布式事务机制无法通过微服务架构轻松扩展到具有多个数据库的情况。</p>
 <p>在涉及多个独立数据库的运行环境中，传统的两阶段提交（2PC）协议[1]从本质上来说是唯一一种能够实现分布式事务功能而不会给应用系统带来额外工作量的方式。然而，由于可能存在多个协调参与者而导致的较长调用链路以及在各个阶段所需要的资源锁定，所以它在横向扩展平台中工作的并不好。另一方面，引入第三方框架[2]（例如：Saga）执行事务日志的方式将导致应用程序产生复杂的事务补偿逻辑；并且由于已经部分执行成功的事务有可能是不可逆的，所以会对业务逻辑产生影响。</p>
 <p>为了解决这些问题，我们开发了 <a href="https://ieeexplore.ieee.org/abstract/document/8731442" target="_blank" rel="noopener">GRIT</a>，一种用于全局一致性分布式事务的新协议，这个协议巧妙地结合了乐观并发控制（OCC）[3]、2PC 和 确定性数据库[4,5]的思想，首次实现了高性能，跨多个基础数据库微服务的全局一致性事务。</p>
 <h2 id="GRIT-一种分布式事务协议实现"><a href="#GRIT-一种分布式事务协议实现" class="headerlink" title="GRIT: 一种分布式事务协议实现"></a>GRIT: 一种分布式事务协议实现</h2><p>下图描述了 GRIT 协议在两个数据库的微服务环境中的使用。GRIT 组件中包含了在图中中间部分显示的 GTM、GPL、DBTM、DBTL 和 LogPlayer 等组件。</p>
-<p><img src="https://tech.ebayinc.com/assets/Uploads/Editor/GRIT-Protocol-for-Distributed-Transactions-across-Microservices6.png"></p>
+<img src="https://tech.ebayinc.com/assets/Uploads/Editor/GRIT-Protocol-for-Distributed-Transactions-across-Microservices6.png">
+
 <p>图中除去 GRIT 相关组件，剩余部分是一个横向扩展的两个数据库组成的微服务架构系统。它包括如下组成部分：</p>
 <ol>
 <li>应用程序：调用微服务来实现相关功能。</li>
@@ -163,7 +165,8 @@
 <li>日志播放器（LogPlayer）：这个组件将用于更新数据的日志条目按顺序发送到后端存储服务器。每一个数据库服务按顺序使用日志条目数据进行逻辑事务提交。</li>
 </ol>
 <p>为了更好的理解 GRIT 协议的实现细节，我们用下图来演示分布式事务的主要步骤：</p>
-<p><img src="https://tech.ebayinc.com/assets/Uploads/Editor/GRIT-main-steps2.png"></p>
+<img src="https://tech.ebayinc.com/assets/Uploads/Editor/GRIT-main-steps2.png">
+
 <p>在 GRIT 中，一个分布式事务要经历三个步骤：</p>
 <ol>
 <li>乐观执行（步骤 1-4）：应用程序通过调用微服务来执行业务逻辑，数据库服务捕捉事务的 <code>读/写结果集</code>。在这个环节没有实际的数据修改发生。</li>
@@ -174,7 +177,8 @@
 <p>GRIT 能够为调用微服务的应用程序实现一致性的高吞吐量和可串行化的分布式事务，并保证最小范围协调性。GRIT 非常适合冲突较少的事务，并为那些需要复杂机制以在具有多个底层数据库的微服务之间实现一致性事务的应用程序提供了关键功能。</p>
 <h2 id="在单一数据库中应用-GRIT"><a href="#在单一数据库中应用-GRIT" class="headerlink" title="在单一数据库中应用 GRIT"></a>在单一数据库中应用 GRIT</h2><p>正如你所了解到的，GRIT 协议包含两部分：<font color="red">其中一部分是用于 DBTM、DBTL 和 LogPlayer 操作的，这是每个数据库（或是每个数据库内部，可以是数据库的一组分区）提供的；另外一部分是用于 GTM 和 DBTM 操作的跨数据库协调。</font>在下图中，我们演示了使用了单个数据库的 GRIT 部分协议为 <a href="https://janusgraph.org/" target="_blank" rel="noopener">JanusGraph</a> 设计的事务图形存储后端（称为 NuGraphStore）。</p>
 <p>下图显示了如何使用两个可用区域（AZ1 和 AZ2）部署来实现 NuGraphStore。</p>
-<p><img src="https://tech.ebayinc.com/assets/Uploads/Editor/GRIT-Protocol-for-Distributed-Transactions-across-Microservices4.png"></p>
+<img src="https://tech.ebayinc.com/assets/Uploads/Editor/GRIT-Protocol-for-Distributed-Transactions-across-Microservices4.png">
+
 <p>JanusGraph 的 NuGraphStore 存储后端包含了以下几个组件：</p>
 <ul>
 <li>存储插件（Storage plugin）：一个自定义的存储接口插件，用于 JanusGraph 数据库层、后端存储引擎和事务协议组件之间的接口。</li>
@@ -200,7 +204,8 @@
 <p>In environments that involve multiple independent databases, the traditional two-phase commit (2PC) protocol[1] was essentially the only option for distributed transactions by the system without additional application effort. However, it does not work well in a scale-out platform due to long paths of potentially many coordinating participants and the locking required over the phases. On the other hand, using a transaction log executed by a framework[2] such as Saga will incur complex compensating logic by applications and may have business implications due to irreversible partially successful transactions. </p>
 <p>To address these issues, we developed <a href="https://ieeexplore.ieee.org/abstract/document/8731442" target="_blank" rel="noopener">GRIT</a>, a novel protocol for globally consistent distributed transactions that cleverly combines ideas from optimistic concurrency control (OCC)[3], 2PC, and deterministic databases[4,5] to achieve, for the first time, high-performance, globally consistent transactions across microservices with multiple underlying databases.</p>
 <h2 id="GRIT-a-protocol-for-distributed-transactions"><a href="#GRIT-a-protocol-for-distributed-transactions" class="headerlink" title="GRIT: a protocol for distributed transactions"></a>GRIT: a protocol for distributed transactions</h2><p>The following diagram illustrates the GRIT protocol in a system of microservices with two databases. The GRIT components, including GTM, GTL, DBTM, DBTL, and LogPlayer, are shown in the center.</p>
-<p><img src="https://tech.ebayinc.com/assets/Uploads/Editor/GRIT-Protocol-for-Distributed-Transactions-across-Microservices6.png"></p>
+<img src="https://tech.ebayinc.com/assets/Uploads/Editor/GRIT-Protocol-for-Distributed-Transactions-across-Microservices6.png">
+
 <p>Without the GRIT components, the diagram represents a system of plain microservice architecture with two scale-out databases. They consist of the following:</p>
 <ol>
 <li>Applications: invoke microservices to achieve their functionality.</li>
@@ -217,7 +222,8 @@
 <li>LogPlayer: This component sends log entries, in sequence, to the backend storage servers for them to apply the updates. Each DB server applies log entries of logically committed transactions in order.</li>
 </ol>
 <p>For the purpose of understanding the details of the protocol, we use the following diagram to show the main steps for a distributed transaction.</p>
-<p><img src="https://tech.ebayinc.com/assets/Uploads/Editor/GRIT-main-steps2.png"></p>
+<img src="https://tech.ebayinc.com/assets/Uploads/Editor/GRIT-main-steps2.png">
+
 <p>In GRIT, a distributed transaction goes through three phases:</p>
 <ol>
 <li>Optimistic execution (steps 1-4): As the application is executing the business logic via microservices, the database services capture the read-set and write-set of the transaction. No actual data modification occurs at this phase.</li>
@@ -229,7 +235,8 @@
 <h2 id="Applying-GRIT-for-a-single-database"><a href="#Applying-GRIT-for-a-single-database" class="headerlink" title="Applying GRIT for a single database"></a>Applying GRIT for a single database</h2><p>As you can see, the GRIT protocol contains two parts: one for each database (or each database realm, which can be a set of partitions of a database) performed by DBTM, DBTL, and LogPlayer, and the other for cross-database coordination by GTM and DBTMs. In the following diagram, we illustrate the design of a transactional graph store backend (called NuGraphStore) for <a href="https://janusgraph.org/" target="_blank" rel="noopener">JanusGraph</a> using the part of GRIT protocol for a single database.</p>
 <p>The following diagram shows how NuGraphStore is implemented with two availability zone (AZ1 and AZ2) deployment for illustration.</p>
 <p>GRIT Protocol for Distributed Transactions across Microservices4</p>
-<p><img src="https://tech.ebayinc.com/assets/Uploads/Editor/GRIT-Protocol-for-Distributed-Transactions-across-Microservices4.png"></p>
+<img src="https://tech.ebayinc.com/assets/Uploads/Editor/GRIT-Protocol-for-Distributed-Transactions-across-Microservices4.png">
+
 <p>There are a few components involved in the NuGraphStore backend for JanusGraph:</p>
 <ul>
 <li>Storage plugin: a custom storage interface plugin to interface between the JanusGraph DB Layer and the backend storage engine and transaction protocol components.</li>
@@ -290,6 +297,14 @@
     
 </footer>
 
+
+  <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
     </main>
 
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
@@ -337,7 +352,7 @@
         <script type="text/javascript" src="/js/scrollspy.min.js"></script>
         <script type="text/javascript">
         $(document.body).scrollspy({target: '#aside-inner'});
-        </script>
+        </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>
