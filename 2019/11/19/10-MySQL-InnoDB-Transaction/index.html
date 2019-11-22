@@ -132,12 +132,12 @@
         <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>目前在维护的 APP 进行了整体重构（其实不能算重构，应该是重新开发），新的服务端系统根据业务场景进行了功能拆分，实现了微服务，结束了以前服务端大一统的部署模式；伴随着微服务的上线，分布式事务也成了一个绕不开的问题。最近的几篇文章计划结合目前项目中的分布式事务的代码实现逻辑，对数据库事务的知识进行系统的学习和整理，当然数据库事务方面的知识很多，所以肯定不是一篇文章可以搞定的，<strong>分布式</strong> 就是要 <strong>“分布试”</strong>。</p>
 <p><strong>PS.数据库事务的知识有哪些，一起来整理一下，今天先以 MySQL 数据库 InnoDB 存储引擎为例，总结一下单数据库事务。</strong></p>
 <a id="more"></a>
+
 <h2 id="事务的ACID特性"><a href="#事务的ACID特性" class="headerlink" title="事务的ACID特性"></a>事务的ACID特性</h2><h3 id="A：原子性（Atomicity）"><a href="#A：原子性（Atomicity）" class="headerlink" title="A：原子性（Atomicity）"></a>A：原子性（Atomicity）</h3><p>事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。</p>
 <h3 id="C：一致性（Consistency）"><a href="#C：一致性（Consistency）" class="headerlink" title="C：一致性（Consistency）"></a>C：一致性（Consistency）</h3><p>一致性指事务将数据库从一种状态转变为下一种一致的状态。在事务开始之前和事务结束之后，数据库的完整性约束没有被破坏。在一致性状态下，所有事务对一个数据的读取结果都是相同的。</p>
 <h3 id="I：隔离性（Isolation）"><a href="#I：隔离性（Isolation）" class="headerlink" title="I：隔离性（Isolation）"></a>I：隔离性（Isolation）</h3><p>一个事务所做的修改在最终提交以前，对其它事务是不可见的。</p>
 <h3 id="D：持久性（Durability）"><a href="#D：持久性（Durability）" class="headerlink" title="D：持久性（Durability）"></a>D：持久性（Durability）</h3><p>一旦事务提交，则其所做的修改将会永远保存到数据库中。即使系统发生崩溃，事务的执行结果页不能丢失。</p>
 <h2 id="事务的并发一致性问题"><a href="#事务的并发一致性问题" class="headerlink" title="事务的并发一致性问题"></a>事务的并发一致性问题</h2><h3 id="丢失更新"><a href="#丢失更新" class="headerlink" title="丢失更新"></a>丢失更新</h3><h4 id="第一类丢失更新"><a href="#第一类丢失更新" class="headerlink" title="第一类丢失更新"></a>第一类丢失更新</h4><p>一个事务（A）更新某条记录数据，此时还未提交，这时另外一个事务（B）也更新了该记录数据并提交事务成功，这时 A 撤销事务，此时 B 更新成功的数据会丢失。</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -146,8 +146,7 @@
 <th>事务B</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>T1</td>
 <td>开启事务</td>
 <td></td>
@@ -192,11 +191,8 @@
 <td>数据恢复为100（丢失更新）</td>
 <td></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h4 id="第二类丢失更新"><a href="#第二类丢失更新" class="headerlink" title="第二类丢失更新"></a>第二类丢失更新</h4><p>一个事务（A）更新某条记录数据，此时还未提交，这时另外一个事务（B）也更新了该记录数据并提交事务成功，此时 A 提交事务，此时 B 更新成功的数据会丢失。</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -205,8 +201,7 @@
 <th>事务B</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>T1</td>
 <td>开启事务</td>
 <td></td>
@@ -251,11 +246,8 @@
 <td>数据结果为110（丢失更新）</td>
 <td></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h3 id="脏读"><a href="#脏读" class="headerlink" title="脏读"></a>脏读</h3><p>脏读是指一个事务读取到了另外一个事务未提交的数据。一个事务正在对一条记录进行修改，在这个事务提交并完成前，这条记录的数据就处于不一致状态。这时， 另一个事务也来读取同一条记录，如果不加控制，第二个事务读取了这些“脏”数据，并据此做进一步的处理，就会产生未提交的数据依赖关系。</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -264,8 +256,7 @@
 <th>事务B</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>T1</td>
 <td>开启事务</td>
 <td></td>
@@ -300,11 +291,8 @@
 <td></td>
 <td>提交事务</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h3 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h3><p>不可重复读是指一个事务读取到了另外一个事务已提交的数据。一个事务（A）读取某一个数据后，另外一个事务（B）对该数据进行了修改，当 A 再读取这个数据时，发现前后两次读取的数据不一致。</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -313,8 +301,7 @@
 <th>事务B</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>T1</td>
 <td>开启事务</td>
 <td></td>
@@ -327,7 +314,7 @@
 <tr>
 <td>T3</td>
 <td></td>
-<td>更新账户余额为150 </td>
+<td>更新账户余额为150</td>
 </tr>
 <tr>
 <td>T4</td>
@@ -349,11 +336,8 @@
 <td>提交事务</td>
 <td></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h3 id="幻读（幻影读）"><a href="#幻读（幻影读）" class="headerlink" title="幻读（幻影读）"></a>幻读（幻影读）</h3><p>一个事务（A）按某一条件检索到 N 条数据，另外一个事务（B）新增或删除了满足条件的数据，这时 A 再按相同条件检索数据，查询到的结果 != N。</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -362,8 +346,7 @@
 <th>事务B</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>T1</td>
 <td>开启事务</td>
 <td>开启事务</td>
@@ -398,9 +381,7 @@
 <td>提交事务</td>
 <td></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h2 id="123456789wwwwww"><a href="#123456789wwwwww" class="headerlink" title="123456789wwwwww"></a>123456789wwwwww</h2>
         
     </section>
@@ -499,7 +480,24 @@
         <script type="text/javascript" src="/js/scrollspy.min.js"></script>
         <script type="text/javascript">
         $(document.body).scrollspy({target: '#aside-inner'});
-        </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+        </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\\\(","\\\\)"]],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
     
 
 </body>
