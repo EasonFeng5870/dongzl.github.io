@@ -202,7 +202,10 @@
 <p>n |= n &gt;&gt;&gt; 4;</p>
 <p>00001111 | (00001111 &gt;&gt;&gt; 4) = 00001111 | 00000000 = 00001111</p>
 </blockquote>
-<p>以此类推右移 8 位、16 位，在这里容量最大也就是 32bit 的正数，因此最后 <code>n |= n &gt;&gt;&gt; 16;</code> 后，最多也就 31 个 1（第一位符号位，恒为 0），但是这时已经大于了 <code>MAXIMUM_CAPACITY</code>，所以最终取值为 <code>MAXIMUM_CAPACITY</code>。<br><img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/HashMap_01.png" width="600px"><br>之所以执行上面的一波无符号右移操作，就是为了让 <code>initialCapacity</code> 的值右移几次之后，二进制的值从某一位起的低位全部为连续 1，之前高位全部为 0，这样最后执行 <code>n + 1</code> 操作之后，结果一定是 <strong>2的k次幂</strong> 值，而且是 &gt;=n 的最小的 <strong>2的k次幂</strong> 值。</p>
+<p>以此类推右移 8 位、16 位，在这里容量最大也就是 32bit 的正数，因此最后 <code>n |= n &gt;&gt;&gt; 16;</code> 后，最多也就 31 个 1（第一位符号位，恒为 0），但是这时已经大于了 <code>MAXIMUM_CAPACITY</code>，所以最终取值为 <code>MAXIMUM_CAPACITY</code>。</p>
+<img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/HashMap_01.png" width="600px">
+
+<p>之所以执行上面的一波无符号右移操作，就是为了让 <code>initialCapacity</code> 的值右移几次之后，二进制的值从某一位起的低位全部为连续 1，之前高位全部为 0，这样最后执行 <code>n + 1</code> 操作之后，结果一定是 <strong>2的k次幂</strong> 值，而且是 &gt;=n 的最小的 <strong>2的k次幂</strong> 值。</p>
 <h2 id="hash-方法"><a href="#hash-方法" class="headerlink" title="hash 方法"></a>hash 方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> h;</span><br><span class="line">    <span class="keyword">return</span> (key == <span class="keyword">null</span>) ? <span class="number">0</span> : (h = key.hashCode()) ^ (h &gt;&gt;&gt; <span class="number">16</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在 hash 方法的实现中，首先计算 key 的 hashCode 值，然后将得到的 hashCode 值无符号右移 16 位，然后再进行 <code>^</code> 操作，最终得到的结果为 key 的 hashCode。<br>我们知道对于 hash 这种数据结构来说，最重要的就是 <code>散列函数（hash函数）</code> 的设计，如果hash函数设计的比较好，可以减少元素之间的碰撞概率，使数据分布更加均匀，提高 get 和 put 方法的执行效率。</p>
