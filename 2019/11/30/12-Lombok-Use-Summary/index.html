@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+
+    
+
+    
+
+    <title>Lombok 框架使用总结 | 善积跬步 方以千里</title>
+    <meta name="author" content="dongzl">
+    <meta name="version" content="1.0.0">
+    <meta name="keywords" content>
+    <meta name="description" content="背景描述最近一直在参与 ShardingSphere 开源项目的一些工作，在 ShardingSphere 项目中大量的使用了 Lombok 框架，对于 Lombok 框架只是有个大概了解，并没有实际的使用，也没有做过深入的研究，正好借参与 ShardingSphere 项目的机会对 Lombok 框架做一个学习和总结，先总结一下自己目前使用中遇到的问题，后续持续不断更新。首先，来看一下 Lombok 官方对这个框架的介绍：Project Lombok is a java lib...">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    
+    <link rel="alternate" href="/atom.xml" title="善积跬步 方以千里" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><main class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">善积跬步 方以千里</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/java">
+                <span class="nav-text">Java</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/web">
+                <span class="nav-text">web</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/database">
+                <span class="nav-text">数据库</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/data-structures-algorithms">
+                <span class="nav-text">算法</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/architectural-design">
+                <span class="nav-text">架构</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/design-pattern">
+                <span class="nav-text">设计模式</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/other">
+                <span class="nav-text">其他</span>
+            </a>
+        
+            <a class="nav-item" href="/categories">
+                <span class="nav-text">分类</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">标签</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://dongzl.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景描述"><span class="toc-number">1.</span> <span class="toc-text">背景描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造方法相关注解"><span class="toc-number">2.</span> <span class="toc-text">构造方法相关注解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#NoArgsConstructor"><span class="toc-number">2.1.</span> <span class="toc-text">@NoArgsConstructor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RequiredArgsConstructor"><span class="toc-number">2.2.</span> <span class="toc-text">@RequiredArgsConstructor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AllArgsConstructor"><span class="toc-number">2.3.</span> <span class="toc-text">@AllArgsConstructor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Getter-amp-Setter"><span class="toc-number">3.</span> <span class="toc-text">@Getter &amp; @Setter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ToString"><span class="toc-number">4.</span> <span class="toc-text">@ToString</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EqualsAndHashCode"><span class="toc-number">5.</span> <span class="toc-text">@EqualsAndHashCode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data"><span class="toc-number">6.</span> <span class="toc-text">@Data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SneakyThrows"><span class="toc-number">7.</span> <span class="toc-text">@SneakyThrows</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-日志"><span class="toc-number">8.</span> <span class="toc-text">Log 日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">9.</span> <span class="toc-text">参考资料</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content"><article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            Lombok 框架使用总结
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://dongzl.github.io/2019/11/30/12-Lombok-Use-Summary/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-11-30T12:38:18.000Z" itemprop="datePublished">2019-11-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/lombok/">lombok</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>最近一直在参与 <a href="https://github.com/apache/incubator-shardingsphere" target="_blank" rel="noopener">ShardingSphere</a> 开源项目的一些工作，在 ShardingSphere 项目中大量的使用了 <a href="https://projectlombok.org/" target="_blank" rel="noopener">Lombok</a> 框架，对于 Lombok 框架只是有个大概了解，并没有实际的使用，也没有做过深入的研究，正好借参与 ShardingSphere 项目的机会对 Lombok 框架做一个学习和总结，先总结一下自己目前使用中遇到的问题，后续持续不断更新。</p>
+<a id="more"></a>
+
+<p>首先，来看一下 Lombok 官方对这个框架的介绍：</p>
+<blockquote>
+<p>Project Lombok is a java library that automatically plugs into your editor and build tools, spicing up your java.<br>Never write another getter or equals method again, with one annotation your class has a fully featured builder, Automate your logging variables, and much more.</p>
+</blockquote>
+<p>Lombok 是一个 java 类库，它可以自动插入到编辑器和构建工具中，对 java 代码进行增强。</p>
+<p>使用 Lombok 后不需要再实现 getter 或者 equals 方法，使用一个注解，您的类就可以拥有一个功能齐全的构造器，自动生成一个日志变量等等功能。</p>
+<h2 id="构造方法相关注解"><a href="#构造方法相关注解" class="headerlink" title="构造方法相关注解"></a>构造方法相关注解</h2><h3 id="NoArgsConstructor"><a href="#NoArgsConstructor" class="headerlink" title="@NoArgsConstructor"></a>@NoArgsConstructor</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.AccessLevel;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NoArgsConstructor</span>(access = AccessLevel.PRIVATE, staticName = <span class="string">"of"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>@NoArgsConstructor 用于生成无参构造器，如果类中存在 final 字段，则会报编译错误。</p>
+<ul>
+<li><code>access</code> 参数用于指定构造器的访问权限，默认为 <code>AccessLevel.PUBLIC</code> 表示生成 public 访问权限的构造器；</li>
+<li><code>staticName</code> 参数用于自动生成一个静态的“构造器”工厂，其内部包裹着一个私有的构造器，对外提供创建对象的功能，这是明显的工厂模式。</li>
+</ul>
+<h3 id="RequiredArgsConstructor"><a href="#RequiredArgsConstructor" class="headerlink" title="@RequiredArgsConstructor"></a>@RequiredArgsConstructor</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.AccessLevel;</span><br><span class="line"><span class="keyword">import</span> lombok.NonNull;</span><br><span class="line"><span class="keyword">import</span> lombok.RequiredArgsConstructor;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequiredArgsConstructor</span>(access = AccessLevel.PUBLIC, staticName = <span class="string">"of"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Integer id;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@NonNull</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        User user = User.of(<span class="number">1</span>, <span class="string">"test"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>@RequiredArgsConstructor 用于按照要求生成部分参数构造器，所谓的要求就是包含 final 和 @NonNull 约束标注的字段，会对 @NonNull 字段进行明确的 null 检查。</p>
+<h3 id="AllArgsConstructor"><a href="#AllArgsConstructor" class="headerlink" title="@AllArgsConstructor"></a>@AllArgsConstructor</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.AccessLevel;</span><br><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.NonNull;</span><br><span class="line"><span class="keyword">import</span> lombok.RequiredArgsConstructor;</span><br><span class="line"></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@RequiredArgsConstructor</span>(access = AccessLevel.PUBLIC, staticName = <span class="string">"of"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Integer id;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@NonNull</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        User user = User.of(<span class="number">1</span>, <span class="string">"test"</span>);</span><br><span class="line">        User user2 = <span class="keyword">new</span> User(<span class="number">1</span>, <span class="string">"test"</span>, <span class="number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>@AllArgsConstructor 用于生成包含所有字段的构造器。</p>
+<h2 id="Getter-amp-Setter"><a href="#Getter-amp-Setter" class="headerlink" title="@Getter &amp; @Setter"></a>@Getter &amp; @Setter</h2><p>@Getter &amp; @Setter 标注在字段上，用于自动生成 get、set 方法，boolean 类型字段 get 方法以 isXXX() 方法。</p>
+<p>生成的 get、set 方法默认情况下都是 public 的，但也可以手动指定以下四种范围：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">AccessLevel.PUBLIC</span><br><span class="line">AccessLevel.MODULE</span><br><span class="line">AccessLevel.PROTECTED</span><br><span class="line">AccessLevel.PACKAGE</span><br><span class="line">AccessLevel.PRIVATE</span><br></pre></td></tr></table></figure>
+
+<p>@Getter &amp; @Setter 也可以标注在类上，表示针对该类中所有的非静态字段进行 get、set 方法自动生成。如果指定某个字段的 <code>AccessLevel = AccessLevel.NONE</code>，则可以使该生成动作失效，此时可以手动实现get、set方法，这应用于在这些方法中有一些自定义逻辑的情况下。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.AccessLevel;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Setter;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Setter</span>(value = AccessLevel.PRIVATE)</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Getter</span>(value = AccessLevel.PACKAGE)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Getter</span>(value = AccessLevel.NONE)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> student;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isStudent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (age &lt; <span class="number">18</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ToString"><a href="#ToString" class="headerlink" title="@ToString"></a>@ToString</h2><p>@ToString 标注于类之上，用于生成 toString() 方法。</p>
+<ul>
+<li>includeFieldNames：默认为 true，表示在 toString 输出时输出字段名称；</li>
+<li>exclude：字符串数组，表示在 toString 输出时排除掉字段名称；</li>
+<li>of：</li>
+<li>callSuper：默认为 false，表示生成 toString 时不输出超类中的字段内容；</li>
+<li>doNotUseGetters：默认为 false，表示获取字段值时通过 get 方法获取，设置为 true 表示直接通过字段获取。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.ToString;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@ToString</span>(includeFieldNames = <span class="keyword">true</span>, exclude = &#123;<span class="string">"id"</span>, <span class="string">"name"</span>&#125;, of = &#123;&#125;, callSuper = <span class="keyword">true</span>, doNotUseGetters = <span class="keyword">true</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> student;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="EqualsAndHashCode"><a href="#EqualsAndHashCode" class="headerlink" title="@EqualsAndHashCode"></a>@EqualsAndHashCode</h2><p>@EqualsAndHashCode 标注于类之上用于生成hashCode方法和equals方法。</p>
+<ul>
+<li>exclude：字符串数组，表示在 toString 输出时排除掉字段名称；</li>
+<li>of：</li>
+<li>callSuper：默认为 false，表示生成 toString 时不输出超类中的字段内容；</li>
+<li>doNotUseGetters：默认为 false，表示获取字段值时通过 get 方法获取，设置为 true 表示直接通过字段获取。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.EqualsAndHashCode;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@EqualsAndHashCode</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Data"><a href="#Data" class="headerlink" title="@Data"></a>@Data</h2><p>@Data 标注于类之上，是 @ToString、@EqualsAndHashCode、@Getter、@Setter、@RequiredArgsConstructor的综合体</p>
+<ul>
+<li>staticConstructor：类似于 @RequiredArgsConstructor 中 staticName 参数。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span>(staticConstructor = <span class="string">"of"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="SneakyThrows"><a href="#SneakyThrows" class="headerlink" title="@SneakyThrows"></a>@SneakyThrows</h2><p>@SneakyThrows 标注于方法之上用于隐藏异常抛出语句。</p>
+<h2 id="Log-日志"><a href="#Log-日志" class="headerlink" title="Log 日志"></a>Log 日志</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lombok.extern.apachecommons.CommonsLog;</span><br><span class="line">lombok.extern.flogger.Flogger;</span><br><span class="line">lombok.extern.java.Log;</span><br><span class="line">lombok.extern.jbosslog.JBossLog;</span><br><span class="line">lombok.extern.log4j.Log4j;</span><br><span class="line">lombok.extern.log4j.Log4j2;</span><br><span class="line">lombok.extern.slf4j.Slf4j;</span><br><span class="line">lombok.extern.slf4j.XSlf4j;</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://projectlombok.org/" target="_blank" rel="noopener">Project Lombok</a></li>
+</ul>
+
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "791785cb3bf7b9b5f1ea",
+        clientSecret: "a73d2380b7dba08575e0190989ef017e480c20c9",
+        repo: "dongzl.github.io",
+        owner: "dongzl",
+        admin: ["dongzl"],
+        id: "2019/11/30/12-Lombok-Use-Summary",
+        distractionFreeMode: true,
+        title: "Lombok 框架使用总结",
+        body: "https://dongzl.github.io/2019/11/30/12-Lombok-Use-Summary/",
+        labels: ["lombok"]
+    }).render('comments');
+    </script>
+</div>
+
+</div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e4027971a230b210f4671f485b33846a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+
+  <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+            
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+        </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\\\(","\\\\)"]],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+    
+
+</body>
+</html>

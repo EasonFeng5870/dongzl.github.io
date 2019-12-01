@@ -155,6 +155,49 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2019/09/29/01-JDK8-HashMap-Code/">一个工作的真实场景聊聊 HashMap 的实现</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://dongzl.github.io/page/2/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-09-29T05:39:36.000Z" itemprop="datePublished">2019-09-29</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Hash/">Hash</a>, <a class="article-tag-link" href="/tags/HashMap/">HashMap</a>, <a class="article-tag-link" href="/tags/红黑树/">红黑树</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>业务同事和其他公司合作活动，对方公司筛选 2W 优质用户手机号提供给我方，出于安全考虑（其实具体原因未知），对方提供的手机号都是 MD5 加密内容；业务同事想对这 2W 用户做短信触达，搞促销活动，业务找到研发需要将现在的 2W MD5 手机号内容逆向转换成用户手机号，然后发短信，需求场景就是这样。</p>
+<p><strong>PS. 一句话需求，2W MD5 手机号内容，需要逆向碰撞出手机号明文，做短信促销。</strong></p>
+        
+        <p class="article-more-link">
+            <a href="/2019/09/29/01-JDK8-HashMap-Code/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2019/09/20/01-online-system-frequent-full-gc-bug/">线上系统频繁Full GC问题排查</a>
         </h1>
         

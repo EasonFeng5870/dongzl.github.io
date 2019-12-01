@@ -155,6 +155,48 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2019/11/30/12-Lombok-Use-Summary/">Lombok 框架使用总结</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://dongzl.github.io/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-11-30T12:38:18.000Z" itemprop="datePublished">2019-11-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/lombok/">lombok</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>最近一直在参与 <a href="https://github.com/apache/incubator-shardingsphere" target="_blank" rel="noopener">ShardingSphere</a> 开源项目的一些工作，在 ShardingSphere 项目中大量的使用了 <a href="https://projectlombok.org/" target="_blank" rel="noopener">Lombok</a> 框架，对于 Lombok 框架只是有个大概了解，并没有实际的使用，也没有做过深入的研究，正好借参与 ShardingSphere 项目的机会对 Lombok 框架做一个学习和总结，先总结一下自己目前使用中遇到的问题，后续持续不断更新。</p>
+        
+        <p class="article-more-link">
+            <a href="/2019/11/30/12-Lombok-Use-Summary/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2019/11/22/hello-world/">Hello World</a>
         </h1>
         
@@ -163,7 +205,7 @@
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2019-11-22T11:05:01.506Z" itemprop="datePublished">2019-11-22</time>
+    <time datetime="2019-11-22T11:19:39.022Z" itemprop="datePublished">2019-11-22</time>
 </a>
 
             
@@ -221,7 +263,7 @@
     
     <section class="article-body markdown-body">
         
-        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>本文主要记录 Hexo 博客系统搭建过程，以及一些常用插件的集成和使用过程。</p>
+        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>本文主要记录 Hexo 博客系统搭建过程，以及一些常用插件的集成和使用过程，后续会一直迭代更新。</p>
         
         <p class="article-more-link">
             <a href="/2019/11/20/11-Hexo-Environment-Building/#more">
@@ -252,6 +294,11 @@
 </a>
 
             
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/ACID/">ACID</a>, <a class="article-tag-link" href="/tags/事务隔离级别/">事务隔离级别</a>, <a class="article-tag-link" href="/tags/并发一致性问题/">并发一致性问题</a>, <a class="article-tag-link" href="/tags/数据库事务/">数据库事务</a>
+</div>
+
 
         </div>
     </header>
@@ -526,49 +573,6 @@
         
         <p class="article-more-link">
             <a href="/2019/10/08/00-redis-distributed-lock/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2019/09/29/01-JDK8-HashMap-Code/">一个工作的真实场景聊聊 HashMap 的实现</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://dongzl.github.io/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-09-29T05:39:36.000Z" itemprop="datePublished">2019-09-29</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Hash/">Hash</a>, <a class="article-tag-link" href="/tags/HashMap/">HashMap</a>, <a class="article-tag-link" href="/tags/红黑树/">红黑树</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>业务同事和其他公司合作活动，对方公司筛选 2W 优质用户手机号提供给我方，出于安全考虑（其实具体原因未知），对方提供的手机号都是 MD5 加密内容；业务同事想对这 2W 用户做短信触达，搞促销活动，业务找到研发需要将现在的 2W MD5 手机号内容逆向转换成用户手机号，然后发短信，需求场景就是这样。</p>
-<p><strong>PS. 一句话需求，2W MD5 手机号内容，需要逆向碰撞出手机号明文，做短信促销。</strong></p>
-        
-        <p class="article-more-link">
-            <a href="/2019/09/29/01-JDK8-HashMap-Code/#more">
                 <span class="vm">阅读更多</span>
                 <i class="icon-arrow-double-right vm"></i>    
             </a>
