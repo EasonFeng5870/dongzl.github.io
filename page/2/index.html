@@ -155,6 +155,49 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2019/10/08/00-redis-distributed-lock/">基于 Redis 实现的分布式锁</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://dongzl.github.io/page/2/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-10-08T10:01:09.000Z" itemprop="datePublished">2019-10-08</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/distributed-lock/">distributed lock</a>, <a class="article-tag-link" href="/tags/expire/">expire</a>, <a class="article-tag-link" href="/tags/getset/">getset</a>, <a class="article-tag-link" href="/tags/redis/">redis</a>, <a class="article-tag-link" href="/tags/setnx/">setnx</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>业务系统网关（API）接口，负责处理客户端发送的 HTTP 请求数据，对于某些客户端的请求数据，需要控制请求的频率；在上一个请求处理完之前，接收到的下一个请求需要拒绝掉，例如，签到领礼品接口，请求到达服务端，需要发放奖品，记录日志，如果逻辑还没处理完，还没成功保存日志数据，客户端又发送了一次请求，查询日志未领取奖品，会导致重复发放奖品。</p>
+<p>PS. 举例逻辑可能比较简单，有些人会较真说需要客户端控制按钮是否可点击（有可能有恶意用户使用 HTTP 客户端工具请求接口），我们只是举例说明一下，主要是写数据场景，防止两次接口请求时间过短导致的重复写数据。</p>
+        
+        <p class="article-more-link">
+            <a href="/2019/10/08/00-redis-distributed-lock/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2019/09/29/01-JDK8-HashMap-Code/">一个工作的真实场景聊聊 HashMap 的实现</a>
         </h1>
         
