@@ -7,7 +7,7 @@
 
     
 
-    <title>善积跬步 方以千里</title>
+    <title>Category: data-structures-algorithms | 善积跬步 方以千里</title>
     <meta name="author" content="dongzl">
     <meta name="version" content="1.0.0">
     <meta name="keywords" content>
@@ -37,7 +37,7 @@
 
     <nav id="nav-inner" class="nav-inner">
         
-            <a class="nav-item active" href="/">
+            <a class="nav-item" href="/">
                 <span class="nav-text">首页</span>
             </a>
         
@@ -53,7 +53,7 @@
                 <span class="nav-text">数据库</span>
             </a>
         
-            <a class="nav-item" href="/categories/data-structures-algorithms">
+            <a class="nav-item active" href="/categories/data-structures-algorithms">
                 <span class="nav-text">算法</span>
             </a>
         
@@ -69,7 +69,7 @@
                 <span class="nav-text">其他</span>
             </a>
         
-            <a class="nav-item" href="/categories">
+            <a class="nav-item active" href="/categories">
                 <span class="nav-text">分类</span>
             </a>
         
@@ -155,21 +155,21 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2019/10/19/06-ZooKeeper-Distributed-Queue/">从一个业务场景聊聊 ZooKeeper 队列使用</a>
+            <a href="/2020/02/13/02-Know-Thy-Complexities/">各种算法的复杂度</a>
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="https://dongzl.github.io/page/2/index.html">
+            <a class="article-date" href="https://dongzl.github.io/categories/data-structures-algorithms/index.html">
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2019-10-19T09:03:49.000Z" itemprop="datePublished">2019-10-19</time>
+    <time datetime="2020-02-13T02:17:58.000Z" itemprop="datePublished">2020-02-13</time>
 </a>
 
             
 <div class="article-tag-list">
     <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Curator/">Curator</a>, <a class="article-tag-link" href="/tags/Distributed-Queue/">Distributed Queue</a>, <a class="article-tag-link" href="/tags/ZooKeeper/">ZooKeeper</a>
+    <a class="article-tag-link" href="/tags/Big-O/">Big-O</a>
 </div>
 
 
@@ -178,224 +178,10 @@
     
     <section class="article-body markdown-body">
         
-        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>目前在做的 APP 客户端有个业务场景，对于登录的新用户需要做一些操作，例如初始化用户账户信息，给该新用户发放一些优惠，比如发放优惠券、赠送经验积分等等。对于这种场景一般很容易想到使用消息队列（MQ），但是考虑到目前的业务场景，每天新增的用户并不多，如果引入专门的消息队列框架（例如：RocketMQ、RabbitMQ）等感觉比较重，意义并不是很大。</p>
-<p><strong>PS. 一句话需求，新增登录用户模块要实现功能解耦，用户登录与新用户业务逻辑功能分开，想到使用消息队列机制，但是不想引入重量级 MQ 框架。</strong></p>
+        <p>你好，这个页面涵盖了计算机科学中常用算法的时间和空间复杂度。在准备过去的技术采访中，我自己花了几个小时爬取网页，把搜索、排序算法中最好情况、最坏情况以及平均情况时间复杂度的内容汇总到一起，这样我就不会在被问及这些问题时被难住了。在过去的几年里，我采访了硅谷的几家初创公司，以及一些大公司，例如谷歌、Facebook、雅虎、LinkedIn和Uber，每次我准备采访时，我都会想“为什么没有人创建一个好的大O备忘单呢？”。所以，为了给你们这些好人节省很多时间，我创造了一个。享受吧！</p>
         
         <p class="article-more-link">
-            <a href="/2019/10/19/06-ZooKeeper-Distributed-Queue/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2019/10/11/00-design-pattern-observer/">从一个功能设计聊聊观察者模式的使用</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://dongzl.github.io/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-10-11T03:06:46.000Z" itemprop="datePublished">2019-10-11</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Observable/">Observable</a>, <a class="article-tag-link" href="/tags/Observer/">Observer</a>, <a class="article-tag-link" href="/tags/观察者模式/">观察者模式</a>, <a class="article-tag-link" href="/tags/设计模式/">设计模式</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>对接公司电商商城系统，接收订单完成 MQ 消息内容，需要根据订单完成数据实现自己业务部门的一些功能，例如：用户下单满多少金额发放某个礼品；过滤订单中有某个 SKU 的商品需要给用户免费绑定虚拟会员服务等等一些功能。</p>
-<p><strong>PS.一句话需求，根据订单 MQ 消息，执行一些特殊业务逻辑处理，业务场景比较杂，逻辑分支比较多，而且随时会新增、撤销某些业务功能。</strong></p>
-        
-        <p class="article-more-link">
-            <a href="/2019/10/11/00-design-pattern-observer/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2019/10/08/00-redis-distributed-lock/">基于 Redis 实现的分布式锁</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://dongzl.github.io/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-10-08T10:01:09.000Z" itemprop="datePublished">2019-10-08</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/distributed-lock/">distributed lock</a>, <a class="article-tag-link" href="/tags/expire/">expire</a>, <a class="article-tag-link" href="/tags/getset/">getset</a>, <a class="article-tag-link" href="/tags/redis/">redis</a>, <a class="article-tag-link" href="/tags/setnx/">setnx</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>业务系统网关（API）接口，负责处理客户端发送的 HTTP 请求数据，对于某些客户端的请求数据，需要控制请求的频率；在上一个请求处理完之前，接收到的下一个请求需要拒绝掉，例如，签到领礼品接口，请求到达服务端，需要发放奖品，记录日志，如果逻辑还没处理完，还没成功保存日志数据，客户端又发送了一次请求，查询日志未领取奖品，会导致重复发放奖品。</p>
-<p>PS. 举例逻辑可能比较简单，有些人会较真说需要客户端控制按钮是否可点击（有可能有恶意用户使用 HTTP 客户端工具请求接口），我们只是举例说明一下，主要是写数据场景，防止两次接口请求时间过短导致的重复写数据。</p>
-        
-        <p class="article-more-link">
-            <a href="/2019/10/08/00-redis-distributed-lock/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2019/09/29/01-JDK8-HashMap-Code/">一个工作的真实场景聊聊 HashMap 的实现</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://dongzl.github.io/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-09-29T05:39:36.000Z" itemprop="datePublished">2019-09-29</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Hash/">Hash</a>, <a class="article-tag-link" href="/tags/HashMap/">HashMap</a>, <a class="article-tag-link" href="/tags/红黑树/">红黑树</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>业务同事和其他公司合作活动，对方公司筛选 2W 优质用户手机号提供给我方，出于安全考虑（其实具体原因未知），对方提供的手机号都是 MD5 加密内容；业务同事想对这 2W 用户做短信触达，搞促销活动，业务找到研发需要将现在的 2W MD5 手机号内容逆向转换成用户手机号，然后发短信，需求场景就是这样。</p>
-<p><strong>PS. 一句话需求，2W MD5 手机号内容，需要逆向碰撞出手机号明文，做短信促销。</strong></p>
-        
-        <p class="article-more-link">
-            <a href="/2019/09/29/01-JDK8-HashMap-Code/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2019/09/20/01-online-system-frequent-full-gc-bug/">线上系统频繁Full GC问题排查</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://dongzl.github.io/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-09-20T07:02:03.000Z" itemprop="datePublished">2019-09-20</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Full-GC/">Full GC</a>, <a class="article-tag-link" href="/tags/HashMap/">HashMap</a>, <a class="article-tag-link" href="/tags/JVM/">JVM</a>, <a class="article-tag-link" href="/tags/MAT/">MAT</a>, <a class="article-tag-link" href="/tags/WeakHashMap/">WeakHashMap</a>, <a class="article-tag-link" href="/tags/dump/">dump</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h2 id="现象描述"><a href="#现象描述" class="headerlink" title="现象描述"></a>现象描述</h2><p>线上系统刚上线后运行正常，使用一段时间后出现频繁 Full GC 现象，系统出现卡顿，但是一直没有出现内存溢出，所以设置内存溢出后生成 dump 文件无效，重启后现象消失，运行一段时间后重复出现上述问题。</p>
-        
-        <p class="article-more-link">
-            <a href="/2019/09/20/01-online-system-frequent-full-gc-bug/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2019/09/14/00-json-lib-bug-with-long-type/">json-lib 解析 Long 类型数据 Bug 排查</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://dongzl.github.io/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-09-14T00:10:17.000Z" itemprop="datePublished">2019-09-14</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Java/">Java</a>, <a class="article-tag-link" href="/tags/Long/">Long</a>, <a class="article-tag-link" href="/tags/json-lib/">json-lib</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>在开发网文功能过程中，从阅文集团获取的网文数据内容中，定义的数据主键都是 long 数据类型，而且是以 json 格式返回的数据；在通过 json-lib 工具解析 json 的过程中，发现 json-lib 存在的一个 bug。</p>
-        
-        <p class="article-more-link">
-            <a href="/2019/09/14/00-json-lib-bug-with-long-type/#more">
+            <a href="/2020/02/13/02-Know-Thy-Complexities/#more">
                 <span class="vm">阅读更多</span>
                 <i class="icon-arrow-double-right vm"></i>    
             </a>
@@ -407,10 +193,6 @@
 
 
 
-
-<nav class="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-</nav>
 
 
 </div>

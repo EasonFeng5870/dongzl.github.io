@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+
+    
+
+    
+
+    <title>各种算法的复杂度 | 善积跬步 方以千里</title>
+    <meta name="author" content="dongzl">
+    <meta name="version" content="1.0.0">
+    <meta name="keywords" content>
+    <meta name="description" content="你好，这个页面涵盖了计算机科学中常用算法的时间和空间复杂度。在准备过去的技术采访中，我自己花了几个小时爬取网页，把搜索、排序算法中最好情况、最坏情况以及平均情况时间复杂度的内容汇总到一起，这样我就不会在被问及这些问题时被难住了。在过去的几年里，我采访了硅谷的几家初创公司，以及一些大公司，例如谷歌、Facebook、雅虎、LinkedIn和Uber，每次我准备采访时，我都会想“为什么没有人创建一个好的大O备忘单呢？”。所以，为了给你们这些好人节省很多时间，我创造了一个。享受吧！Hi ...">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    
+    <link rel="alternate" href="/atom.xml" title="善积跬步 方以千里" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><main class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">善积跬步 方以千里</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/java">
+                <span class="nav-text">Java</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/web">
+                <span class="nav-text">web</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/database">
+                <span class="nav-text">数据库</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/data-structures-algorithms">
+                <span class="nav-text">算法</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/architectural-design">
+                <span class="nav-text">架构</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/design-pattern">
+                <span class="nav-text">设计模式</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/other">
+                <span class="nav-text">其他</span>
+            </a>
+        
+            <a class="nav-item" href="/categories">
+                <span class="nav-text">分类</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">标签</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://dongzl.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#大O复杂度统计图"><span class="toc-number">1.</span> <span class="toc-text">大O复杂度统计图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用数据结构操作"><span class="toc-number">2.</span> <span class="toc-text">常用数据结构操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线性排序算法"><span class="toc-number">3.</span> <span class="toc-text">线性排序算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#官方网站-Big-O-统计数据图"><span class="toc-number">4.</span> <span class="toc-text">官方网站 Big-O 统计数据图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content"><article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            各种算法的复杂度
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://dongzl.github.io/2020/02/13/02-Know-Thy-Complexities/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-02-13T02:17:58.000Z" itemprop="datePublished">2020-02-13</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Big-O/">Big-O</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>你好，这个页面涵盖了计算机科学中常用算法的时间和空间复杂度。在准备过去的技术采访中，我自己花了几个小时爬取网页，把搜索、排序算法中最好情况、最坏情况以及平均情况时间复杂度的内容汇总到一起，这样我就不会在被问及这些问题时被难住了。在过去的几年里，我采访了硅谷的几家初创公司，以及一些大公司，例如谷歌、Facebook、雅虎、LinkedIn和Uber，每次我准备采访时，我都会想“为什么没有人创建一个好的大O备忘单呢？”。所以，为了给你们这些好人节省很多时间，我创造了一个。享受吧！</p>
+<a id="more"></a>
+
+<blockquote>
+<p>Hi there!  This webpage covers the space and time Big-O complexities of common algorithms used in Computer Science.  When preparing for technical interviews in the past, I found myself spending hours crawling the internet putting together the best, average, and worst case complexities for search and sorting algorithms so that I wouldn’t be stumped when asked about them.  Over the last few years, I’ve interviewed at several Silicon Valley startups, and also some bigger companies, like Google, Facebook, Yahoo, LinkedIn, and Uber, and each time that I prepared for an interview, I thought to myself “Why hasn’t someone created a nice Big-O cheat sheet?”.  So, to save all of you fine folks a ton of time, I went ahead and created one.  Enjoy!</p>
+</blockquote>
+<h2 id="大O复杂度统计图"><a href="#大O复杂度统计图" class="headerlink" title="大O复杂度统计图"></a>大O复杂度统计图</h2><p>Big-O Complexity Chart</p>
+<img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/Big-O-Complexity-Chart.png" width="600px">
+
+<h2 id="常用数据结构操作"><a href="#常用数据结构操作" class="headerlink" title="常用数据结构操作"></a>常用数据结构操作</h2><p>Common Data Structure Operations</p>
+<img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/Common-Data-Structure-Operations.png" width="600px">
+
+<h2 id="线性排序算法"><a href="#线性排序算法" class="headerlink" title="线性排序算法"></a>线性排序算法</h2><p>Array Sorting Algorithms</p>
+<img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/Array-Sorting-Algorithms.png" width="600px">
+
+<h2 id="官方网站-Big-O-统计数据图"><a href="#官方网站-Big-O-统计数据图" class="headerlink" title="官方网站 Big-O 统计数据图"></a>官方网站 Big-O 统计数据图</h2><p>Get the Official Big-O Cheat Sheet Poster</p>
+<img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/Big-O-Cheat-Sheet-Poster.png" width="600px">
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://www.bigocheatsheet.com/" target="_blank" rel="noopener">Know Thy Complexities!</a></li>
+<li><a href="https://blog.csdn.net/herorenme/article/details/8919095" target="_blank" rel="noopener">Know Thy Complexities! (各种算法的复杂度)</a></li>
+<li><a href="https://www.cnblogs.com/datascientist/p/3557401.html" target="_blank" rel="noopener">Know Thy Complexities!</a></li>
+</ul>
+
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "791785cb3bf7b9b5f1ea",
+        clientSecret: "a73d2380b7dba08575e0190989ef017e480c20c9",
+        repo: "dongzl.github.io",
+        owner: "dongzl",
+        admin: ["dongzl"],
+        id: "2020/02/13/02-Know-Thy-Complexities",
+        distractionFreeMode: true,
+        title: "各种算法的复杂度",
+        body: "https://dongzl.github.io/2020/02/13/02-Know-Thy-Complexities/",
+        labels: ["Big-O"]
+    }).render('comments');
+    </script>
+</div>
+
+</div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e4027971a230b210f4671f485b33846a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+
+  <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+            
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+        </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\\\(","\\\\)"]],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+    
+
+</body>
+</html>
