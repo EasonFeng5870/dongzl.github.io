@@ -155,6 +155,97 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2019/10/29/08-GRIT-Microservices-Distributed-Transactions-Protocol/">GRIT：一种微服务场景下分布式事务协议实现</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://dongzl.github.io/page/2/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-10-29T01:42:47.000Z" itemprop="datePublished">2019-10-29</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/GRIT/">GRIT</a>, <a class="article-tag-link" href="/tags/deterministic/">deterministic</a>, <a class="article-tag-link" href="/tags/distributed/">distributed</a>, <a class="article-tag-link" href="/tags/microservice/">microservice</a>, <a class="article-tag-link" href="/tags/transaction/">transaction</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <blockquote>
+<p>原文链接：<a href="https://tech.ebayinc.com/engineering/grit-a-protocol-for-distributed-transactions-across-microservices/" target="_blank" rel="noopener">https://tech.ebayinc.com/engineering/grit-a-protocol-for-distributed-transactions-across-microservices/</a></p>
+</blockquote>
+<blockquote>
+<p>eBay 技术人员最近发布了一种称为 <code>GRIT</code> 分布式事务协议，该协议是为了解决跨多个底层数据库的微服务场景下分布式 ACID（原子性，一致性，隔离性，持久性）事务问题。</p>
+</blockquote>
+<p>本文描述了在 <strong>IEEE国际数据工程会议(ICDE) 2019</strong> 上发布的 GRIT 协议的基本思想，<font color="red">并且提供了一个 JanusGraph 事务性存储后端的示例，该示例实现了 GRIT 协议的一部分功能</font>。这个示例关注的是仅有单一数据库的应用，但是正如我们所说，GRIT 可以支持由多个数据库组成的系统的 ACID 事务。</p>
+        
+        <p class="article-more-link">
+            <a href="/2019/10/29/08-GRIT-Microservices-Distributed-Transactions-Protocol/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2019/10/23/07-Wireshark-Sharding-Proxy/">记一次 Wireshark 抓包 Sharding-Proxy 过程</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://dongzl.github.io/page/2/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-10-23T09:39:35.000Z" itemprop="datePublished">2019-10-23</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/MySQL/">MySQL</a>, <a class="article-tag-link" href="/tags/Sharding-Proxy/">Sharding-Proxy</a>, <a class="article-tag-link" href="/tags/ShardingSphere/">ShardingSphere</a>, <a class="article-tag-link" href="/tags/Wireshark/">Wireshark</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>最近在在参与 <a href="http://shardingsphere.apache.org/" target="_blank" rel="noopener">Apache ShardingSphere</a> 开源项目的一些工作，在 Github 的 <a href="https://github.com/apache/incubator-shardingsphere/issues" target="_blank" rel="noopener">issue 列表</a> 认领了一个问题 <a href="https://github.com/apache/incubator-shardingsphere/issues/3005" target="_blank" rel="noopener">#3005</a>。</p>
+<p>产品描述：首先简单介绍一下 ShardingSphere 中的一个产品 Sharding-Proxy，Sharding-Proxy 产品的功能是做一个透明的中间层代理，后面连接很多的 MySQL 数据库（可能是很多分库后 MySQL 数据库）。用户在使用中可以不用直接连到真实 MySQL 数据库上，而是连接到 Sharding-Proxy 上，通过这个工具再连接到真实的数据库上。</p>
+        
+        <p class="article-more-link">
+            <a href="/2019/10/23/07-Wireshark-Sharding-Proxy/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2019/10/19/06-ZooKeeper-Distributed-Queue/">从一个业务场景聊聊 ZooKeeper 队列使用</a>
         </h1>
         
