@@ -155,6 +155,49 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2019/11/06/09-design-pattern-strategy/">从一个功能设计聊聊策略模式的使用</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://dongzl.github.io/page/2/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-11-06T08:25:58.000Z" itemprop="datePublished">2019-11-06</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/策略枚举/">策略枚举</a>, <a class="article-tag-link" href="/tags/策略模式/">策略模式</a>, <a class="article-tag-link" href="/tags/设计模式/">设计模式</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>线上业务销售一种 VIP 虚拟卡，对于已售出的 VIP 虚拟卡在给供应商结算时需要根据销售渠道不同进行区分，例如，Android 端销售的虚拟卡按实际销售金额结算；iOS端销售的虚拟卡按实际销售金额 70% 结算（做苹果开发的都知道，苹果公司雁过拔毛，要拔走 30%）；还有就是可能与其他商品捆绑销售，捆绑销售的金额根据合作不同部门、不同商品金额都不同。目前情况即是如此，虚拟卡销售渠道很多，不同渠道结算金额不同，而且还会扩展（最近就在经历扩展，华为属于 Android 渠道，但是也开始玩苹果那套规则，拔 30% 的毛）。</p>
+<p><strong>PS. 一句话需求，销售商品结算，不同销售渠道销售金额不同，而且随时会扩展新的渠道。</strong></p>
+        
+        <p class="article-more-link">
+            <a href="/2019/11/06/09-design-pattern-strategy/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2019/10/29/08-GRIT-Microservices-Distributed-Transactions-Protocol/">GRIT：一种微服务场景下分布式事务协议实现</a>
         </h1>
         
