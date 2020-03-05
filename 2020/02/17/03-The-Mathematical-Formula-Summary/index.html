@@ -11,7 +11,7 @@
     <meta name="author" content="dongzl">
     <meta name="version" content="1.0.0">
     <meta name="keywords" content>
-    <meta name="description" content="斐波那契数列通向公式：$$a_n=\frac{1}{\sqrt{5}} \begin{bmatrix} \begin{pmatrix} \frac{1 + \sqrt{5}}{2} \end{pmatrix}^2 - \begin{pmatrix} \frac{1 - \sqrt{5}}{2} \end{pmatrix}^2\end{bmatrix}$$">
+    <meta name="description" content="斐波那契数列通向公式：$$a_n=\frac{1}{\sqrt{5}} \begin{bmatrix} \begin{pmatrix} \frac{1 + \sqrt{5}}{2} \end{pmatrix}^n - \begin{pmatrix} \frac{1 - \sqrt{5}}{2} \end{pmatrix}^n\end{bmatrix}$$斐波那契数列矩阵方程：$$\begin{bmatrix} f(n)\\ f(n - 1) \end{bmatrix} = \...">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 
@@ -174,8 +174,14 @@
     
     <section class="article-body markdown-body">
         
-        <p>斐波那契数列通向公式：</p>
-<p>$$a_n=\frac{1}{\sqrt{5}} \begin{bmatrix} \begin{pmatrix} \frac{1 + \sqrt{5}}{2} \end{pmatrix}^2 - \begin{pmatrix} \frac{1 - \sqrt{5}}{2} \end{pmatrix}^2\end{bmatrix}$$</p>
+        <ul>
+<li>斐波那契数列通向公式：</li>
+</ul>
+<p>$$a_n=\frac{1}{\sqrt{5}} \begin{bmatrix} \begin{pmatrix} \frac{1 + \sqrt{5}}{2} \end{pmatrix}^n - \begin{pmatrix} \frac{1 - \sqrt{5}}{2} \end{pmatrix}^n\end{bmatrix}$$</p>
+<ul>
+<li>斐波那契数列矩阵方程：</li>
+</ul>
+<p>$$\begin{bmatrix} f(n)\\ f(n - 1) \end{bmatrix} = \begin{bmatrix} 1&amp;1\\ 1&amp;0 \end{bmatrix} \begin{bmatrix} f(n - 1)\\ f(n - 2) \end{bmatrix} = \begin{bmatrix} 1&amp;1\\ 1&amp;0 \end{bmatrix}^{n + 1} \begin{bmatrix} f(1)\\ f(0) \end{bmatrix}$$</p>
 
         
     </section>

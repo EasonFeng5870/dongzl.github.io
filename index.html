@@ -155,6 +155,50 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2020/03/05/06-The-Beauty-Of-Data-Structures-And-Algorithms/">极客时间 《数据结构与算法之美》 学习笔记</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://dongzl.github.io/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-03-05T01:36:44.000Z" itemprop="datePublished">2020-03-05</time>
+</a>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>本文是 <a href="https://time.geekbang.org/" target="_blank" rel="noopener">极客时间</a> 上 <a href="https://time.geekbang.org/column/intro/126" target="_blank" rel="noopener">数据结构与算法之美</a> 课程的学习笔记内容。</p>
+<h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><h3 id="10-递归：如何用三行代码找到“最终推荐人”？"><a href="#10-递归：如何用三行代码找到“最终推荐人”？" class="headerlink" title="10 | 递归：如何用三行代码找到“最终推荐人”？"></a>10 | 递归：如何用三行代码找到“最终推荐人”？</h3><p><strong>递归需要满足的三个条件</strong>：</p>
+<ul>
+<li>一个问题的解可以分解为几个子问题的解</li>
+<li>这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样</li>
+<li>存在递归终止条件</li>
+</ul>
+<p><font color="red">写递归代码的关键就是找到如何将大问题分解为小问题的规律，并且基于此写出递推公式，然后再推敲终止条件，最后将递推公式和终止条件翻译成代码</font></p>
+<p><strong>编写递归代码的关键是，只要遇到递归，我们就把它抽象成一个递推公式，不用想一层层的调用关系，不要试图用人脑去分解递归的每个步骤。</strong></p>
+<p><strong>使用递归可能需要规避的问题</strong>：</p>
+<ul>
+<li>递归代码要警惕堆栈溢出</li>
+<li>递归代码要警惕重复计算</li>
+</ul>
+<p><a href="https://mp.weixin.qq.com/s/Ki3WN2AJ5HhxxmaQ0lVh3Q" target="_blank" rel="noopener">还有程序员天真地以为”尾递归“真的可以避免堆栈溢出！</a></p>
+
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2020/02/29/05-Design-Pattern-Proxy/">聊聊代理模式（Proxy）的使用</a>
         </h1>
         
@@ -252,8 +296,14 @@
     
     <section class="article-body markdown-body">
         
-        <p>斐波那契数列通向公式：</p>
-<p>$$a_n=\frac{1}{\sqrt{5}} \begin{bmatrix} \begin{pmatrix} \frac{1 + \sqrt{5}}{2} \end{pmatrix}^2 - \begin{pmatrix} \frac{1 - \sqrt{5}}{2} \end{pmatrix}^2\end{bmatrix}$$</p>
+        <ul>
+<li>斐波那契数列通向公式：</li>
+</ul>
+<p>$$a_n=\frac{1}{\sqrt{5}} \begin{bmatrix} \begin{pmatrix} \frac{1 + \sqrt{5}}{2} \end{pmatrix}^n - \begin{pmatrix} \frac{1 - \sqrt{5}}{2} \end{pmatrix}^n\end{bmatrix}$$</p>
+<ul>
+<li>斐波那契数列矩阵方程：</li>
+</ul>
+<p>$$\begin{bmatrix} f(n)\\ f(n - 1) \end{bmatrix} = \begin{bmatrix} 1&amp;1\\ 1&amp;0 \end{bmatrix} \begin{bmatrix} f(n - 1)\\ f(n - 2) \end{bmatrix} = \begin{bmatrix} 1&amp;1\\ 1&amp;0 \end{bmatrix}^{n + 1} \begin{bmatrix} f(1)\\ f(0) \end{bmatrix}$$</p>
 
         
     </section>
@@ -509,49 +559,6 @@
         
         <p class="article-more-link">
             <a href="/2019/11/20/11-Hexo-Environment-Building/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2019/11/19/10-MySQL-InnoDB-Transaction/">10-MySQL-InnoDB-Transaction</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="https://dongzl.github.io/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-11-19T11:08:31.000Z" itemprop="datePublished">2019-11-19</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/ACID/">ACID</a>, <a class="article-tag-link" href="/tags/事务隔离级别/">事务隔离级别</a>, <a class="article-tag-link" href="/tags/并发一致性问题/">并发一致性问题</a>, <a class="article-tag-link" href="/tags/数据库事务/">数据库事务</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h2 id="背景描述"><a href="#背景描述" class="headerlink" title="背景描述"></a>背景描述</h2><p>目前在维护的 APP 进行了整体重构（其实不能算重构，应该是重新开发），新的服务端系统根据业务场景进行了功能拆分，实现了微服务，结束了以前服务端大一统的部署模式；伴随着微服务的上线，分布式事务也成了一个绕不开的问题。最近的几篇文章计划结合目前项目中的分布式事务的代码实现逻辑，对数据库事务的知识进行系统的学习和整理，当然数据库事务方面的知识很多，所以肯定不是一篇文章可以搞定的，<strong>分布式</strong> 就是要 <strong>“分布试”</strong>。</p>
-<p><strong>PS.数据库事务的知识有哪些，一起来整理一下，今天先以 MySQL 数据库 InnoDB 存储引擎为例，总结一下单数据库事务。</strong></p>
-        
-        <p class="article-more-link">
-            <a href="/2019/11/19/10-MySQL-InnoDB-Transaction/#more">
                 <span class="vm">阅读更多</span>
                 <i class="icon-arrow-double-right vm"></i>    
             </a>
