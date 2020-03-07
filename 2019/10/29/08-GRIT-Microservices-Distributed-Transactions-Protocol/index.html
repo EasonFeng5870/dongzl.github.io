@@ -147,7 +147,7 @@
 <p>在涉及多个独立数据库的运行环境中，传统的两阶段提交（2PC）协议[1]从本质上来说是唯一一种能够实现分布式事务功能而不会给应用系统带来额外工作量的方式。然而，由于可能存在多个协调参与者而导致的较长调用链路以及在各个阶段所需要的资源锁定，所以它在横向扩展平台中工作的并不好。另一方面，引入第三方框架[2]（例如：Saga）执行事务日志的方式将导致应用程序产生复杂的事务补偿逻辑；并且由于已经部分执行成功的事务有可能是不可逆的，所以会对业务逻辑产生影响。</p>
 <p>为了解决这些问题，我们开发了 <a href="https://ieeexplore.ieee.org/abstract/document/8731442" target="_blank" rel="noopener">GRIT</a>，一种用于全局一致性分布式事务的新协议，这个协议巧妙地结合了乐观并发控制（OCC）[3]、2PC 和 确定性数据库[4,5]的思想，首次实现了高性能，跨多个基础数据库微服务的全局一致性事务。</p>
 <h2 id="GRIT-一种分布式事务协议实现"><a href="#GRIT-一种分布式事务协议实现" class="headerlink" title="GRIT: 一种分布式事务协议实现"></a>GRIT: 一种分布式事务协议实现</h2><p>下图描述了 GRIT 协议在两个数据库的微服务环境中的使用。GRIT 组件中包含了在图中中间部分显示的 GTM、GPL、DBTM、DBTL 和 LogPlayer 等组件。</p>
-<img src="https://tech.ebayinc.com/assets/Uploads/Editor/GRIT-Protocol-for-Distributed-Transactions-across-Microservices6.png">
+<img src="https://gitee.com/dongzl/article-images/raw/master/2019/08-GRIT-Microservices-Distributed-Transactions-Protocol/GRIT-Protocol-for-Distributed-Transactions-across-Microservices6.png">
 
 <p>图中除去 GRIT 相关组件，剩余部分是一个横向扩展的两个数据库组成的微服务架构系统。它包括如下组成部分：</p>
 <ol>
@@ -165,7 +165,7 @@
 <li>日志播放器（LogPlayer）：这个组件将用于更新数据的日志条目按顺序发送到后端存储服务器。每一个数据库服务按顺序使用日志条目数据进行逻辑事务提交。</li>
 </ol>
 <p>为了更好的理解 GRIT 协议的实现细节，我们用下图来演示分布式事务的主要步骤：</p>
-<img src="https://tech.ebayinc.com/assets/Uploads/Editor/GRIT-main-steps2.png">
+<img src="https://gitee.com/dongzl/article-images/raw/master/2019/08-GRIT-Microservices-Distributed-Transactions-Protocol/GRIT-main-steps2.png">
 
 <p>在 GRIT 中，一个分布式事务要经历三个步骤：</p>
 <ol>
@@ -177,7 +177,7 @@
 <p>GRIT 能够为调用微服务的应用程序实现一致性的高吞吐量和可串行化的分布式事务，并保证最小范围协调性。GRIT 非常适合冲突较少的事务，并为那些需要复杂机制以在具有多个底层数据库的微服务之间实现一致性事务的应用程序提供了关键功能。</p>
 <h2 id="在单一数据库中应用-GRIT"><a href="#在单一数据库中应用-GRIT" class="headerlink" title="在单一数据库中应用 GRIT"></a>在单一数据库中应用 GRIT</h2><p>正如你所了解到的，GRIT 协议包含两部分：<font color="red">其中一部分是用于 DBTM、DBTL 和 LogPlayer 操作的，这是每个数据库（或是每个数据库内部，可以是数据库的一组分区）提供的；另外一部分是用于 GTM 和 DBTM 操作的跨数据库协调。</font>在下图中，我们演示了使用了单个数据库的 GRIT 部分协议为 <a href="https://janusgraph.org/" target="_blank" rel="noopener">JanusGraph</a> 设计的事务图形存储后端（称为 NuGraphStore）。</p>
 <p>下图显示了如何使用两个可用区域（AZ1 和 AZ2）部署来实现 NuGraphStore。</p>
-<img src="https://tech.ebayinc.com/assets/Uploads/Editor/GRIT-Protocol-for-Distributed-Transactions-across-Microservices4.png">
+<img src="https://gitee.com/dongzl/article-images/raw/master/2019/08-GRIT-Microservices-Distributed-Transactions-Protocol/GRIT-Protocol-for-Distributed-Transactions-across-Microservices4.png">
 
 <p>JanusGraph 的 NuGraphStore 存储后端包含了以下几个组件：</p>
 <ul>

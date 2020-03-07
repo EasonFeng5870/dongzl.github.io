@@ -147,7 +147,7 @@
 
 <h3 id="客户端调用"><a href="#客户端调用" class="headerlink" title="客户端调用"></a>客户端调用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        StrategyParam param = <span class="keyword">new</span> StrategyParam();</span><br><span class="line">        System.out.println(<span class="keyword">new</span> StrategyContext(param).calculate());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="类图描述"><a href="#类图描述" class="headerlink" title="类图描述"></a>类图描述</h3><img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/Design_Pattern_Strategy_01.png" width="600px">
+<h3 id="类图描述"><a href="#类图描述" class="headerlink" title="类图描述"></a>类图描述</h3><img src="https://gitee.com/dongzl/article-images/raw/master/2019/09-design-pattern-strategy/Design_Pattern_Strategy_01.png" width="600px">
 
 <h2 id="观察者模式的四要素"><a href="#观察者模式的四要素" class="headerlink" title="观察者模式的四要素"></a>观察者模式的四要素</h2><h3 id="定义与动机"><a href="#定义与动机" class="headerlink" title="定义与动机"></a>定义与动机</h3><p><strong>定义：</strong> </p>
 <p>策略模式（Strategy Pattern）：定义<strong>一系列算法</strong>，将<strong>每一个算法封装起来</strong>，并让他们可以<strong>相互替换</strong>。策略模式<strong>让算法独立于使用它的客户端而变化</strong>，也称为<strong>政策模式</strong>（Policy）。策略模式是一种<strong>对象行为型</strong>模式。</p>
@@ -157,7 +157,7 @@
 <p>为了解决这些问题，<font color="red">可以定义一些独立的类来封装不同的算法，每一个类封装一个具体的算法</font>。在这里，<font color="red">每一个封装算法的类我们都可以称之为策略（Strategy）</font>，为了保证这些策略的一致性，一般会用一个<font color="red">抽象的策略类来做算法的定义，而具体每种算法则对应于一个具体策略类</font>。</p>
 <h3 id="结构与分析"><a href="#结构与分析" class="headerlink" title="结构与分析"></a>结构与分析</h3><p><strong>模式结构：</strong></p>
 <p>类图：</p>
-<img src="https://raw.githubusercontent.com/dongzl/dongzl.github.io/hexo/blog/source/images/Design_Pattern_Strategy_02.png" width="600px">
+<img src="https://gitee.com/dongzl/article-images/raw/master/2019/09-design-pattern-strategy/Design_Pattern_Strategy_02.png" width="600px">
 
 <ul>
 <li>Context封装角色：上下文角色，起承上启下封装作用，屏蔽高层模块对策略、算法的直接访问，封装可能存在的变化。</li>
