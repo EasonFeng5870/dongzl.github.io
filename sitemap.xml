@@ -2,6 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dongzl.github.io/2020/03/15/12-MySQL-Master-Slave-Replication/</loc>
+    
+    <lastmod>2020-03-15T04:25:17.588Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2010/03/10/mysql/</loc>
+    
+    <lastmod>2020-03-15T02:56:47.887Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2020/03/14/11-MySQL-Optimization-Knowledge-Summary/</loc>
+    
+    <lastmod>2020-03-15T02:56:38.528Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2020/03/14/10-The-Implementation-Principles-Of-MySQL-Index/</loc>
+    
+    <lastmod>2020-03-15T00:10:01.550Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2020/03/13/09-The-Implementation-Principles-Of-MySQL-ACID/</loc>
+    
+    <lastmod>2020-03-14T11:44:27.951Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2019/11/20/11-Hexo-Environment-Building/</loc>
+    
+    <lastmod>2020-03-13T08:38:55.120Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/about/index.html</loc>
+    
+    <lastmod>2020-03-13T06:00:01.056Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2019/12/26/08-The-Beauty-Of-Design-Pattern/</loc>
+    
+    <lastmod>2020-03-11T13:09:38.903Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dongzl.github.io/2020/02/21/04-On-The-Principle-Of-Computer-Composition/</loc>
     
     <lastmod>2020-03-10T02:25:46.323Z</lastmod>
@@ -79,13 +135,6 @@
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/2019/11/20/11-Hexo-Environment-Building/</loc>
-    
-    <lastmod>2020-03-09T14:25:07.446Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://dongzl.github.io/2019/11/30/12-Lombok-Use-Summary/</loc>
     
     <lastmod>2020-03-09T14:23:23.166Z</lastmod>
@@ -135,13 +184,6 @@
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/2019/12/26/08-The-Beauty-Of-Design-Pattern/</loc>
-    
-    <lastmod>2020-03-09T13:31:01.589Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://dongzl.github.io/2019/12/26/hello-world/</loc>
     
     <lastmod>2020-03-09T13:29:46.081Z</lastmod>
@@ -173,13 +215,6 @@
     <loc>https://dongzl.github.io/about/%E8%91%A3%E5%AE%97%E7%A3%8A%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86.html</loc>
     
     <lastmod>2020-03-08T06:44:24.182Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongzl.github.io/about/index.html</loc>
-    
-    <lastmod>2020-03-08T06:44:24.181Z</lastmod>
     
   </url>
   
