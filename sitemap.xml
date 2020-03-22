@@ -2,9 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dongzl.github.io/2020/03/17/14-Redis-HA-Master-Salve/</loc>
+    
+    <lastmod>2020-03-22T15:07:59.112Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2020/03/18/15-ThreadPoolExecutor-Source-Code/</loc>
+    
+    <lastmod>2020-03-22T14:54:05.593Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2020/03/21/17-Bloom-Filter-Summary/</loc>
+    
+    <lastmod>2020-03-22T14:37:53.486Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2020/03/22/18-Redis-Interview-knowledge/</loc>
+    
+    <lastmod>2020-03-22T14:27:12.465Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2020/03/19/16-MySQL-Lock-Summary/</loc>
+    
+    <lastmod>2020-03-19T14:49:53.671Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2020/03/16/13-Solve-MQ-Problem-With-Kafka/</loc>
+    
+    <lastmod>2020-03-18T01:07:21.533Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2020/03/14/10-The-Implementation-Principles-Of-MySQL-Index/</loc>
+    
+    <lastmod>2020-03-16T03:00:59.576Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dongzl.github.io/2020/03/15/12-MySQL-Master-Slave-Replication/</loc>
     
-    <lastmod>2020-03-15T04:25:17.588Z</lastmod>
+    <lastmod>2020-03-15T11:52:19.478Z</lastmod>
     
   </url>
   
@@ -19,13 +68,6 @@
     <loc>https://dongzl.github.io/2020/03/14/11-MySQL-Optimization-Knowledge-Summary/</loc>
     
     <lastmod>2020-03-15T02:56:38.528Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongzl.github.io/2020/03/14/10-The-Implementation-Principles-Of-MySQL-Index/</loc>
-    
-    <lastmod>2020-03-15T00:10:01.550Z</lastmod>
     
   </url>
   
