@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dongzl.github.io/2020/04/03/20-Mashibing-Synchronized-Volatile-CAS/</loc>
+    
+    <lastmod>2020-04-03T14:34:32.716Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2019/11/20/11-Hexo-Environment-Building/</loc>
+    
+    <lastmod>2020-04-03T11:08:37.126Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dongzl.github.io/2019/11/19/10-MySQL-InnoDB-Transaction/</loc>
     
     <lastmod>2020-04-03T09:57:23.859Z</lastmod>
@@ -145,13 +159,6 @@
     <loc>https://dongzl.github.io/2020/03/13/09-The-Implementation-Principles-Of-MySQL-ACID/</loc>
     
     <lastmod>2020-03-14T11:44:27.951Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongzl.github.io/2019/11/20/11-Hexo-Environment-Building/</loc>
-    
-    <lastmod>2020-03-13T08:38:55.120Z</lastmod>
     
   </url>
   
