@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dongzl.github.io/2019/11/19/10-MySQL-InnoDB-Transaction/</loc>
+    
+    <lastmod>2020-04-03T09:57:23.859Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2019/10/29/08-GRIT-Microservices-Distributed-Transactions-Protocol/</loc>
+    
+    <lastmod>2020-04-03T09:55:34.674Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dongzl.github.io/2020/04/01/19-CountDownLatch-AQS-Share-Lock/</loc>
     
-    <lastmod>2020-04-02T08:40:24.342Z</lastmod>
+    <lastmod>2020-04-02T14:28:12.409Z</lastmod>
     
   </url>
   
@@ -156,13 +170,6 @@
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/2019/10/29/08-GRIT-Microservices-Distributed-Transactions-Protocol/</loc>
-    
-    <lastmod>2020-03-10T02:16:01.100Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://dongzl.github.io/2019/10/23/07-Wireshark-Sharding-Proxy/</loc>
     
     <lastmod>2020-03-10T02:10:23.222Z</lastmod>
@@ -194,13 +201,6 @@
     <loc>https://dongzl.github.io/2019/11/06/09-design-pattern-strategy/</loc>
     
     <lastmod>2020-03-10T01:11:40.249Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongzl.github.io/2019/11/19/10-MySQL-InnoDB-Transaction/</loc>
-    
-    <lastmod>2020-03-10T01:08:49.055Z</lastmod>
     
   </url>
   
