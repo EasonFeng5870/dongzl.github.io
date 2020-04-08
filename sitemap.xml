@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://dongzl.github.io/2020/03/14/11-MySQL-Optimization-Knowledge-Summary/</loc>
+    <loc>https://dongzl.github.io/2020/04/08/21-What-Is-Maven-Wrapper/</loc>
     
-    <lastmod>2020-04-08T06:40:44.296Z</lastmod>
+    <lastmod>2020-04-08T13:30:15.232Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://dongzl.github.io/2020/03/13/09-The-Implementation-Principles-Of-MySQL-ACID/</loc>
     
-    <lastmod>2020-04-08T06:36:51.623Z</lastmod>
+    <lastmod>2020-04-08T09:22:16.915Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2019/10/11/01-design-pattern-observer/</loc>
+    
+    <lastmod>2020-04-08T08:57:13.078Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2020/03/14/11-MySQL-Optimization-Knowledge-Summary/</loc>
+    
+    <lastmod>2020-04-08T06:40:44.296Z</lastmod>
     
   </url>
   
@@ -194,13 +208,6 @@
     <loc>https://dongzl.github.io/2019/09/20/05-online-system-frequent-full-gc-bug/</loc>
     
     <lastmod>2020-03-10T01:51:53.728Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongzl.github.io/2019/10/11/01-design-pattern-observer/</loc>
-    
-    <lastmod>2020-03-10T01:11:49.704Z</lastmod>
     
   </url>
   
