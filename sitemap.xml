@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dongzl.github.io/2020/03/14/11-MySQL-Optimization-Knowledge-Summary/</loc>
+    
+    <lastmod>2020-04-08T06:40:44.296Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dongzl.github.io/2020/03/13/09-The-Implementation-Principles-Of-MySQL-ACID/</loc>
     
     <lastmod>2020-04-08T06:36:51.623Z</lastmod>
@@ -152,13 +159,6 @@
     <loc>https://dongzl.github.io/2010/03/10/mysql/</loc>
     
     <lastmod>2020-03-15T02:56:47.887Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongzl.github.io/2020/03/14/11-MySQL-Optimization-Knowledge-Summary/</loc>
-    
-    <lastmod>2020-03-15T02:56:38.528Z</lastmod>
     
   </url>
   
