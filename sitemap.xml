@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dongzl.github.io/2019/01/01/mysql/</loc>
+    
+    <lastmod>2020-04-09T13:42:43.072Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/about/index.html</loc>
+    
+    <lastmod>2020-04-09T13:40:57.229Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2020/03/18/15-ThreadPoolExecutor-Source-Code/</loc>
+    
+    <lastmod>2020-04-09T10:51:37.526Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dongzl.github.io/2020/04/08/21-What-Is-Maven-Wrapper/</loc>
     
     <lastmod>2020-04-09T10:07:12.932Z</lastmod>
@@ -30,14 +51,14 @@
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/about/%E8%91%A3%E5%AE%97%E7%A3%8A%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86.html</loc>
+    <loc>https://dongzl.github.io/about/index_bak.html</loc>
     
     <lastmod>2020-04-09T03:08:42.668Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/about/index_bak.html</loc>
+    <loc>https://dongzl.github.io/about/%E8%91%A3%E5%AE%97%E7%A3%8A%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86.html</loc>
     
     <lastmod>2020-04-09T03:08:42.668Z</lastmod>
     
@@ -47,20 +68,6 @@
     <loc>https://dongzl.github.io/2019/12/26/hello-world/</loc>
     
     <lastmod>2020-04-09T03:08:42.662Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongzl.github.io/about/index.html</loc>
-    
-    <lastmod>2020-04-09T03:08:42.662Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongzl.github.io/2010/03/10/mysql/</loc>
-    
-    <lastmod>2020-04-09T03:08:42.661Z</lastmod>
     
   </url>
   
@@ -100,13 +107,6 @@
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/2020/03/18/15-ThreadPoolExecutor-Source-Code/</loc>
-    
-    <lastmod>2020-04-09T03:08:42.598Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://dongzl.github.io/2020/03/17/14-Redis-HA-Master-Salve/</loc>
     
     <lastmod>2020-04-09T03:08:42.587Z</lastmod>
@@ -121,14 +121,14 @@
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/2020/03/15/12-MySQL-Master-Slave-Replication/</loc>
+    <loc>https://dongzl.github.io/2020/03/14/11-MySQL-Optimization-Knowledge-Summary/</loc>
     
     <lastmod>2020-04-09T03:08:42.579Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/2020/03/14/11-MySQL-Optimization-Knowledge-Summary/</loc>
+    <loc>https://dongzl.github.io/2020/03/15/12-MySQL-Master-Slave-Replication/</loc>
     
     <lastmod>2020-04-09T03:08:42.579Z</lastmod>
     
@@ -177,14 +177,14 @@
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/2020/02/17/03-The-Mathematical-Formula-Summary/</loc>
+    <loc>https://dongzl.github.io/2020/02/21/04-On-The-Principle-Of-Computer-Composition/</loc>
     
     <lastmod>2020-04-09T03:08:42.556Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/2020/02/21/04-On-The-Principle-Of-Computer-Composition/</loc>
+    <loc>https://dongzl.github.io/2020/02/17/03-The-Mathematical-Formula-Summary/</loc>
     
     <lastmod>2020-04-09T03:08:42.556Z</lastmod>
     
