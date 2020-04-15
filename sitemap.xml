@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dongzl.github.io/2020/04/13/22-JVM-Garbage-Collection/</loc>
+    
+    <lastmod>2020-04-15T14:56:02.851Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dongzl.github.io/2019/01/01/mysql/</loc>
     
     <lastmod>2020-04-09T13:42:43.072Z</lastmod>
@@ -51,14 +58,14 @@
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/about/index_bak.html</loc>
+    <loc>https://dongzl.github.io/about/%E8%91%A3%E5%AE%97%E7%A3%8A%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86.html</loc>
     
     <lastmod>2020-04-09T03:08:42.668Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/about/%E8%91%A3%E5%AE%97%E7%A3%8A%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86.html</loc>
+    <loc>https://dongzl.github.io/about/index_bak.html</loc>
     
     <lastmod>2020-04-09T03:08:42.668Z</lastmod>
     
@@ -93,14 +100,14 @@
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/2020/03/19/16-MySQL-Lock-Summary/</loc>
+    <loc>https://dongzl.github.io/2020/03/21/17-Bloom-Filter-Summary/</loc>
     
     <lastmod>2020-04-09T03:08:42.617Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/2020/03/21/17-Bloom-Filter-Summary/</loc>
+    <loc>https://dongzl.github.io/2020/03/19/16-MySQL-Lock-Summary/</loc>
     
     <lastmod>2020-04-09T03:08:42.617Z</lastmod>
     
