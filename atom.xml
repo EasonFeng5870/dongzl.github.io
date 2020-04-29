@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dongzl.github.io/"/>
-  <updated>2020-04-21T11:14:43.533Z</updated>
+  <updated>2020-04-29T11:29:43.865Z</updated>
   <id>https://dongzl.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《OKR 工作法》读书笔记</title>
+    <link href="https://dongzl.github.io/2020/04/29/24-OKR-Work-Method/"/>
+    <id>https://dongzl.github.io/2020/04/29/24-OKR-Work-Method/</id>
+    <published>2020-04-29T11:17:33.000Z</published>
+    <updated>2020-04-29T11:29:43.865Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="使用-OKR-的最后建议"><a href="#使用-OKR-的最后建议" class="headerlink" title="使用 OKR 的最后建议"></a>使用 OKR 的最后建议</h2><ul><li><p>只设置一个公司级别的 OKR，除非公司有多条业务线。这就是聚焦。</p></li><li><p>给自己三个月的时间去挑战 OKR，一周内可以完成的目标绝对称不上有挑战。</p></li><li><p>目标里不要有传统的绩效考核指标，目标需要能够鼓舞人心。</p></li><li><p>在每周盘点进度时，先从公司 OKR 开始，然后沟通部门级别的，不需要在会议上沟通个人 OKR，个人 OKR 只要一对一交流就可以了。每周必须确认 OKR 的进度。</p></li><li><p>OKR 是自上而下关联的。先设定公司的 OKR，然后是部门的，最后是个人的。</p></li><li><p>OKr 不是唯一一件你需要做的事情，而是你必须要的一件事。要相信大家可以保证事情顺利进行，不要把每个任务都塞进你的 OKR 里。</p></li><li><p>周一的 OKR 进度确认是一次谈话，而不是汇报或指示。务必要讨论信心指数、状态指标和优先级的变化。</p></li><li><p>鼓励员工对公司 OKR 提出意见和建议。OKR 不只是自上而下的实施，也要有自下而上的成分，要让所有人都能参与其中。</p></li><li><p>把 OKR 公之于众，谷歌把它们放在了公司的内网上。</p></li><li><p>周五的庆祝活动对于周一严酷的业务来说是一种调剂，可以让团队保持乐观积极的态度。</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;使用-OKR-的最后建议&quot;&gt;&lt;a href=&quot;#使用-OKR-的最后建议&quot; class=&quot;headerlink&quot; title=&quot;使用 OKR 的最后建议&quot;&gt;&lt;/a&gt;使用 OKR 的最后建议&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;只设置一个公司级别的 OKR，除非公司有多
+      
+    
+    </summary>
+    
+    
+      <category term="读书笔记" scheme="https://dongzl.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>JVM 相关面试题汇总（附简要答案）</title>
@@ -531,35 +556,6 @@
     
     
       <category term="计算机组成原理" scheme="https://dongzl.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机中常用数学公式汇总</title>
-    <link href="https://dongzl.github.io/2020/02/17/03-The-Mathematical-Formula-Summary/"/>
-    <id>https://dongzl.github.io/2020/02/17/03-The-Mathematical-Formula-Summary/</id>
-    <published>2020-02-17T14:04:54.000Z</published>
-    <updated>2020-04-09T03:08:42.556Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>斐波那契数列通向公式：</li></ul><p>$$a_n=\frac{1}{\sqrt{5}} \begin{bmatrix} \begin{pmatrix} \frac{1 + \sqrt{5}}{2} \end{pmatrix}^n - \begin{pmatrix} \frac{1 - \sqrt{5}}{2} \end{pmatrix}^n\end{bmatrix}$$</p><ul><li>斐波那契数列矩阵方程：</li></ul><p>$$\begin{bmatrix} f(n)\\ f(n - 1) \end{bmatrix} = \begin{bmatrix} 1&amp;1\\ 1&amp;0 \end{bmatrix} \begin{bmatrix} f(n - 1)\\ f(n - 2) \end{bmatrix} = \begin{bmatrix} 1&amp;1\\ 1&amp;0 \end{bmatrix}^{n + 1} \begin{bmatrix} f(1)\\ f(0) \end{bmatrix}$$</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ul&gt;
-&lt;li&gt;斐波那契数列通向公式：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$a_n=\frac{1}{\sqrt{5}} \begin{bmatrix} \begin{pmatrix} \frac{1 + \sqrt{5}}{2} \end{pmatrix}^n - \begin{
-      
-    
-    </summary>
-    
-    
-      <category term="其他" scheme="https://dongzl.github.io/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="数学公式" scheme="https://dongzl.github.io/tags/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/"/>
     
   </entry>
   
