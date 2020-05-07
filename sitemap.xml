@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dongzl.github.io/2020/03/19/16-MySQL-Lock-Summary/</loc>
+    
+    <lastmod>2020-05-07T09:47:56.743Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dongzl.github.io/2020/04/29/24-OKR-Work-Method/</loc>
     
     <lastmod>2020-04-29T11:29:43.865Z</lastmod>
@@ -117,13 +124,6 @@
     <loc>https://dongzl.github.io/2020/03/22/18-Redis-Interview-knowledge/</loc>
     
     <lastmod>2020-04-09T03:08:42.628Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongzl.github.io/2020/03/19/16-MySQL-Lock-Summary/</loc>
-    
-    <lastmod>2020-04-09T03:08:42.617Z</lastmod>
     
   </url>
   
