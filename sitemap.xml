@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://dongzl.github.io/2020/03/19/16-MySQL-Lock-Summary/</loc>
+    <loc>https://dongzl.github.io/2020/04/29/24-OKR-Work-Method/</loc>
     
-    <lastmod>2020-05-07T09:58:40.992Z</lastmod>
+    <lastmod>2020-05-08T09:08:29.053Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/2020/04/29/24-OKR-Work-Method/</loc>
+    <loc>https://dongzl.github.io/2020/03/18/15-ThreadPoolExecutor-Source-Code/</loc>
     
-    <lastmod>2020-04-29T11:29:43.865Z</lastmod>
+    <lastmod>2020-05-07T10:08:45.366Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2020/03/19/16-MySQL-Lock-Summary/</loc>
+    
+    <lastmod>2020-05-07T09:58:40.992Z</lastmod>
     
   </url>
   
@@ -51,13 +58,6 @@
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/2020/03/18/15-ThreadPoolExecutor-Source-Code/</loc>
-    
-    <lastmod>2020-04-09T10:51:37.526Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://dongzl.github.io/2020/04/08/21-What-Is-Maven-Wrapper/</loc>
     
     <lastmod>2020-04-09T10:07:12.932Z</lastmod>
@@ -86,14 +86,14 @@
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/about/index_bak.html</loc>
+    <loc>https://dongzl.github.io/about/%E8%91%A3%E5%AE%97%E7%A3%8A%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86.html</loc>
     
     <lastmod>2020-04-09T03:08:42.668Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/about/%E8%91%A3%E5%AE%97%E7%A3%8A%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86.html</loc>
+    <loc>https://dongzl.github.io/about/index_bak.html</loc>
     
     <lastmod>2020-04-09T03:08:42.668Z</lastmod>
     
