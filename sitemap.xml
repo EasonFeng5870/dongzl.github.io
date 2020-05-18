@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dongzl.github.io/about/index.html</loc>
+    
+    <lastmod>2020-05-18T02:05:53.514Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/about/index_bak_v2.html</loc>
+    
+    <lastmod>2020-05-18T02:04:40.440Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dongzl.github.io/2020/05/13/25-JDK8-ConcurrentHashMap/</loc>
     
-    <lastmod>2020-05-15T05:37:57.828Z</lastmod>
+    <lastmod>2020-05-15T05:48:46.380Z</lastmod>
     
   </url>
   
@@ -72,13 +86,6 @@
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/about/index.html</loc>
-    
-    <lastmod>2020-04-09T13:40:57.229Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://dongzl.github.io/2020/04/08/21-What-Is-Maven-Wrapper/</loc>
     
     <lastmod>2020-04-09T10:07:12.932Z</lastmod>
@@ -107,14 +114,14 @@
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/about/index_bak.html</loc>
+    <loc>https://dongzl.github.io/about/%E8%91%A3%E5%AE%97%E7%A3%8A%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86.html</loc>
     
     <lastmod>2020-04-09T03:08:42.668Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/about/%E8%91%A3%E5%AE%97%E7%A3%8A%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86.html</loc>
+    <loc>https://dongzl.github.io/about/index_bak.html</loc>
     
     <lastmod>2020-04-09T03:08:42.668Z</lastmod>
     
