@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dongzl.github.io/2020/03/16/13-Solve-MQ-Problem-With-Kafka/</loc>
+    
+    <lastmod>2020-05-29T08:19:25.813Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dongzl.github.io/2020/05/27/28-PT-OSC-Add-Unique-Index/</loc>
     
-    <lastmod>2020-05-29T02:16:27.836Z</lastmod>
+    <lastmod>2020-05-29T02:24:29.927Z</lastmod>
     
   </url>
   
@@ -149,14 +156,14 @@
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/about/%E8%91%A3%E5%AE%97%E7%A3%8A%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86.html</loc>
+    <loc>https://dongzl.github.io/about/index_bak.html</loc>
     
     <lastmod>2020-04-09T03:08:42.668Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/about/index_bak.html</loc>
+    <loc>https://dongzl.github.io/about/%E8%91%A3%E5%AE%97%E7%A3%8A%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86.html</loc>
     
     <lastmod>2020-04-09T03:08:42.668Z</lastmod>
     
@@ -194,13 +201,6 @@
     <loc>https://dongzl.github.io/2020/03/17/14-Redis-HA-Master-Salve/</loc>
     
     <lastmod>2020-04-09T03:08:42.587Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongzl.github.io/2020/03/16/13-Solve-MQ-Problem-With-Kafka/</loc>
-    
-    <lastmod>2020-04-09T03:08:42.586Z</lastmod>
     
   </url>
   
