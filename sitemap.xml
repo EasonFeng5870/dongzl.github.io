@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dongzl.github.io/2020/06/04/29-Algorithm-Training-Note/</loc>
+    
+    <lastmod>2020-06-05T02:01:09.890Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2019/09/29/02-JDK8-HashMap-Code/</loc>
+    
+    <lastmod>2020-06-04T05:41:09.962Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://dongzl.github.io/2020/03/21/17-Bloom-Filter-Summary/</loc>
+    
+    <lastmod>2020-05-29T09:22:13.120Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dongzl.github.io/2020/03/16/13-Solve-MQ-Problem-With-Kafka/</loc>
     
     <lastmod>2020-05-29T08:52:53.209Z</lastmod>
@@ -68,13 +89,6 @@
     <loc>https://dongzl.github.io/2020/05/13/25-JDK8-ConcurrentHashMap/</loc>
     
     <lastmod>2020-05-15T05:48:46.380Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongzl.github.io/2019/09/29/02-JDK8-HashMap-Code/</loc>
-    
-    <lastmod>2020-05-13T09:45:41.590Z</lastmod>
     
   </url>
   
@@ -187,13 +201,6 @@
     <loc>https://dongzl.github.io/2020/04/01/19-CountDownLatch-AQS-Share-Lock/</loc>
     
     <lastmod>2020-04-09T03:08:42.647Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dongzl.github.io/2020/03/21/17-Bloom-Filter-Summary/</loc>
-    
-    <lastmod>2020-04-09T03:08:42.617Z</lastmod>
     
   </url>
   
