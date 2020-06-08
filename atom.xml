@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://dongzl.github.io/"/>
-  <updated>2020-06-06T02:20:29.580Z</updated>
+  <updated>2020-06-08T03:26:27.882Z</updated>
   <id>https://dongzl.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Go 语言编程知识学习总结（持续更新中）</title>
+    <link href="https://dongzl.github.io/2020/06/08/30-Go-Knowledge-Summary/"/>
+    <id>https://dongzl.github.io/2020/06/08/30-Go-Knowledge-Summary/</id>
+    <published>2020-06-08T03:08:31.000Z</published>
+    <updated>2020-06-08T03:26:27.882Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="北京"><a href="#北京" class="headerlink" title="北京"></a>北京</h2><p>2020年的一个 <code>Flag</code>，学习 <code>Go</code> 语言的使用，虽然说编程语言都是相通的，已经能够熟练使用 Java 语言进行程序开发了，但是这并不能决定对于学习 Go 语言具备什么样的巨大优势，有些时候学习一门编程语言的语法和基本使用，写出一个 <code>Hello World!</code> 的小程序并不会很难，但是如果说要使用一门新的语言做出一个小工具、小产品，并且能够使用优雅的 <code>code</code> 完成这个工作，并不是一件容易的事情。本文汇总自己 <code>Go</code> 语言学习过程中的一些知识内容，不会一蹴而就，会持续不断的更新。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;北京&quot;&gt;&lt;a href=&quot;#北京&quot; class=&quot;headerlink&quot; title=&quot;北京&quot;&gt;&lt;/a&gt;北京&lt;/h2&gt;&lt;p&gt;2020年的一个 &lt;code&gt;Flag&lt;/code&gt;，学习 &lt;code&gt;Go&lt;/code&gt; 语言的使用，虽然说编程语言都是相通的，已经能够熟
+      
+    
+    </summary>
+    
+    
+      <category term="Go语言" scheme="https://dongzl.github.io/categories/Go%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="Go" scheme="https://dongzl.github.io/tags/Go/"/>
+    
+  </entry>
   
   <entry>
     <title>《算法训练营》课堂笔记 &amp; 习题</title>
@@ -531,35 +557,6 @@
       <category term="MySQL" scheme="https://dongzl.github.io/tags/MySQL/"/>
     
       <category term="调优" scheme="https://dongzl.github.io/tags/%E8%B0%83%E4%BC%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL 数据库索引的实现原理</title>
-    <link href="https://dongzl.github.io/2020/03/14/10-The-Implementation-Principles-Of-MySQL-Index/"/>
-    <id>https://dongzl.github.io/2020/03/14/10-The-Implementation-Principles-Of-MySQL-Index/</id>
-    <published>2020-03-14T05:52:04.000Z</published>
-    <updated>2020-04-09T03:08:42.566Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><blockquote><p>1、MySQL 数据库索引分类。<br>2、MySQL 数据库 InnoDB 存储引擎的底层数据结构。<br>3、为什么底层使用 B+ 树而不用 B 树</p></blockquote><h2 id="MySQL-架构"><a href="#MySQL-架构" class="headerlink" title="MySQL 架构"></a>MySQL 架构</h2><img src="https://gitee.com/dongzl/article-images/raw/master/2020/10-The-Implementation-Principles-Of-MySQL-Index/The-Implementation-Principles-Of-MySQL-Index-03.png"><h2 id="索引的分类"><a href="#索引的分类" class="headerlink" title="索引的分类"></a>索引的分类</h2><p>MySQL 索引分五种类型：主键索引、唯一索引、普通索引和全文索引、组合索引。通过给字段添加索引可以提高数据的读取速度，提高项目的并发能力和抗压能力。</p><ul><li><p>主键索引：主键是一种唯一性索引，但它必须指定为 PRIMARY KEY，每个表只能有一个主键；</p></li><li><p>唯一索引：索引列的所有值都只能出现一次，即必须唯一，但是值可以为空；</p></li><li><p>普通索引：基本的索引类型，值可以为空，没有唯一性的限制；</p></li><li><p>全文索引：全文索引的索引类型为 FULLTEXT，全文索引可以在 varchar、char、text 类型的列上创建；（使用较少，一般都使用专门的搜索框架，例如 ElasticSearch）</p></li><li><p>组合索引：多列值组成一个索引，专门用于组合搜索。</p></li></ul><h2 id="MySQL-索引实现原理分析"><a href="#MySQL-索引实现原理分析" class="headerlink" title="MySQL 索引实现原理分析"></a>MySQL 索引实现原理分析</h2><p><strong>为什么没有使用 Hash 表的索引格式</strong></p><p>使用类似于 JDK 中 HashMap 的数据结构来存储索引数据，有如下特点：</p><ul><li><p>优点：查询速度快，Hash 数据结构查询时间复杂度为 O(1);</p></li><li><p>缺点：</p><ul><li>1、需要将数据文件 load 到内存，比较耗费内存空间；</li><li>2、Hash 快速查询只适合等值查询，对于范围查询效率低下，在实际工作中范围查询的场景比较多。</li></ul></li></ul><p><strong>为什么没有使用二叉树和红黑树索引格式</strong></p><p>无论是二叉树还是红黑树，都会因为树的深度过深而造成 IO 次数变多，影响数据读取效率。</p><p><strong>为什么没有使用 B 树索引格式</strong></p><p>B 树特点：</p><p>1、所有键值分布在整棵树中；<br>2、搜索有可能在非叶子节点结束，在关键字全集内做一次查找，性能逼近二分查找；<br>3、每个节点最多拥有 m 个子树；<br>4、根节点至少有 2 个子树；<br>5、分支节点至少拥有 m / 2 棵子树（除根节点和叶子节点外都是分支节点）；<br>6、所有叶子节点都在同一层、每个节点最多可以有 m - 1 个 key，并且以升序排列。</p><p>B 树缺点：</p><ul><li><p>每个节点都有 key，同时也包含 data，而每个页存储空间是有限的，如果 data 比较大的话会导致每个节点存储的 key 数量变小；</p></li><li><p>当存储的数据量很大的时候会导致深度较大，增大查询时磁盘 IO 次数，进而影响查询性能。</p></li></ul><img src="https://gitee.com/dongzl/article-images/raw/master/2020/10-The-Implementation-Principles-Of-MySQL-Index/The-Implementation-Principles-Of-MySQL-Index-01.png"><p><strong>MySQL B+ 树索引格式实现原理</strong></p><p>B+ 树是在 B 树的基础上做的一种优化，优化如下：</p><ul><li><p>B+ 树每个节点可以包含更多的节点（非叶子节点不在存储数据），这样做的原因有两个，第一是为了降低树的高度，第二个原因是将数据范围变为多个区间，区间越多，数据检索越快；</p></li><li><p>非叶子节点存储 key ，叶子节点存储 key 和数据；</p></li><li><p>叶子节点两两指针互相连接（符合磁盘的预读特性），顺序查询性能更高。</p></li></ul><p><strong>MySQL InnoDB–B+ 树，叶子节点直接存储数据</strong></p><ul><li><p>InnoDB 是通过 B+ 树结构对主键创建索引，在叶子节点中存储记录数据，如果没有主键，就选择唯一键，如果没有唯一键，那么会生成一个 6 位的 row_id 来作为主键；</p></li><li><p>如果创建索引的键是其他字段，那么在叶子节点中存储的是该记录的主键，然后在通过主键索引找到对应的记录，这个过程叫做回表。</p></li></ul><p><strong>MySQL MyISAM–B+ 树，叶子节点存储表中数据的地址</strong></p><img src="https://gitee.com/dongzl/article-images/raw/master/2020/10-The-Implementation-Principles-Of-MySQL-Index/The-Implementation-Principles-Of-MySQL-Index-02.png"><h2 id="MySQL-索引的一些其他内容"><a href="#MySQL-索引的一些其他内容" class="headerlink" title="MySQL 索引的一些其他内容"></a>MySQL 索引的一些其他内容</h2><h3 id="回表"><a href="#回表" class="headerlink" title="回表"></a>回表</h3><p>如果 MySQL 中的索引不是主键索引，在使用这个索引进行数据查询时，需要现在这个索引的 B+ 树中找到叶子节点存储的主键 ID，然后根据主键 ID 到主键索引的 B+ 树中查找到最终记录，这个过程就叫做回表。</p><h3 id="最左匹配原则"><a href="#最左匹配原则" class="headerlink" title="最左匹配原则"></a>最左匹配原则</h3><p>在创建联合索引时，如果在查询条件中包含索引的最左列，那么这个索引可以匹配到，如果不包含最左列，这个索引无法匹配，这个称做最左原则。</p><p>比如某个表有联合索引，索引字段为 (column1, column2)</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a、<span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> column1 = <span class="string">'c1'</span> <span class="keyword">and</span> column2 = <span class="string">'c2'</span>;</span><br><span class="line"></span><br><span class="line">b、<span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> column2 = <span class="string">'c2'</span> <span class="keyword">and</span> column1 = <span class="string">'c1'</span>;</span><br><span class="line"></span><br><span class="line">c、<span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> column1 = <span class="string">'c1'</span>;</span><br><span class="line"></span><br><span class="line">d、<span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> column2 = <span class="string">'c2'</span>;</span><br></pre></td></tr></table></figure><p>上述 a、b、c 三个查询可以使用该索引，查询 d 无法使用该索引。</p><p>知识补充，如果上述四条SQL语句都希望走索引，需要创建两个索引：</p><p>组合索引: (column1, column2), 和 column2 单列索引；</p><p>或者是组合索引: (column2, column1), 和 column1 单列索引；</p><p>具体选择哪种方案，需要对比 column1、column2 字段类型，在满足查询优化情况尽量减少磁盘空间占用。</p><p>PS.</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 范围查询只能用到 column2 列上索引，column2 上用不到</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> column1 &gt; <span class="string">'c1'</span> <span class="keyword">and</span> column2 = <span class="string">'c2'</span>;</span><br></pre></td></tr></table></figure><h3 id="索引覆盖"><a href="#索引覆盖" class="headerlink" title="索引覆盖"></a>索引覆盖</h3><p>如果索引中包含查询结果需要的全部字段，那么将不需要在回表查询该记录的所有数据，这个过程就是索引覆盖，覆盖索引在查询计划中表现为：<code>using index</code>。</p><h3 id="索引下推"><a href="#索引下推" class="headerlink" title="索引下推"></a>索引下推</h3><p>例如有 user_table 表，表上有 (user_name, age) 联合索引<br>如果现在有一个需求，查出名称中以“张”开头且年龄小于等于 10 的用户信息：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> user_table <span class="keyword">where</span> user_name <span class="keyword">like</span> <span class="string">'张%'</span> <span class="keyword">and</span> age &gt; <span class="number">10</span>;</span><br></pre></td></tr></table></figure><p>这条查询语句有两种执行可能：</p><ul><li><p>根据 (user_name, age) 联合索引查询所有满足名称以“张”开头的索引，然后回表查询出相应的全行数据，然后再筛选出满足年龄小于等于10的用户数据。</p></li><li><p>根据 (user_name, age) 联合索引查询所有满足名称以“张”开头的索引，然后直接再筛选出年龄小于等于10的索引，之后再回表查询全行数据。</p></li></ul><p>很明显，后一种方式需要回表查询的全行数据比较少，这就是 MySQL 的索引下推。</p><h3 id="聚簇索引与非聚簇索引"><a href="#聚簇索引与非聚簇索引" class="headerlink" title="聚簇索引与非聚簇索引"></a>聚簇索引与非聚簇索引</h3><p>聚簇索引并不是一种索引类型，而是一种数据存储方式，指的是数据行跟相邻的键值紧凑的存储在一起。费聚簇索引是指数据文件和索引文件分开存放。</p><p>MySQL 数据库中 InnoDB 存储引擎，B+ 树索引可以分为聚簇索引（也称聚集索引，clustered index）和辅助索引（有时也称非聚簇索引或二级索引，secondary index，non-clustered index）。这两种索引内部都是B+树，聚集索引的叶子节点存放着一整行的数据。</p><p>InnoDB 中的主键索引是一种聚簇索引，非聚簇索引都是辅助索引，像复合索引、前缀索引、唯一索引。</p><p>InnoDB 使用的是聚簇索引，MyISAM 使用的是非聚簇索引。</p><p><strong>聚簇索引的优缺点</strong>：</p><p>优点：</p><ul><li><p>数据访问更快，因为聚簇索引将索引和数据保存在同一个B+树中，因此从聚簇索引中获取数据比非聚簇索引更快；</p></li><li><p>聚簇索引对于主键的排序查找和范围查找速度非常快。</p></li></ul><p>缺点：</p><ul><li><p>插入速度严重依赖于插入顺序，按照主键的顺序插入是最快的方式，否则将会出现页分裂，严重影响性能。因此，对于InnoDB表，我们一般都会定义一个自增的ID列为主键</p></li><li><p>更新主键的代价很高，因为将会导致被更新的行移动。因此，对于 InnoDB 表，我们一般定义主键为不可更新。</p></li><li><p>二级索引访问需要两次索引查找，第一次找到主键值，第二次根据主键值找到行数据。</p></li></ul><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><a href="https://www.jianshu.com/p/bdc9e57ccf8b" target="_blank" rel="noopener">MySQL 索引篇之覆盖索引、联合索引、索引下推</a></li><li><a href="https://blog.csdn.net/mccand1234/article/details/95799942" target="_blank" rel="noopener">索引下推（5.6版本+）</a></li><li><a href="https://zhenganwen.top/posts/433a3305/" target="_blank" rel="noopener">MySQL优化面试</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;面试题&quot;&gt;&lt;a href=&quot;#面试题&quot; class=&quot;headerlink&quot; title=&quot;面试题&quot;&gt;&lt;/a&gt;面试题&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;1、MySQL 数据库索引分类。&lt;br&gt;2、MySQL 数据库 InnoDB 存储引擎的底层数据结构。&lt;b
-      
-    
-    </summary>
-    
-    
-      <category term="数据库" scheme="https://dongzl.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="MySQL" scheme="https://dongzl.github.io/tags/MySQL/"/>
-    
-      <category term="索引" scheme="https://dongzl.github.io/tags/%E7%B4%A2%E5%BC%95/"/>
     
   </entry>
   

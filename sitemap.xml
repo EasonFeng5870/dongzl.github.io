@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dongzl.github.io/2020/06/08/30-Go-Knowledge-Summary/</loc>
+    
+    <lastmod>2020-06-08T03:26:27.882Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dongzl.github.io/2020/06/04/29-Algorithm-Training-Note/</loc>
     
     <lastmod>2020-06-06T02:20:29.580Z</lastmod>
@@ -170,14 +177,14 @@
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/about/%E8%91%A3%E5%AE%97%E7%A3%8A%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86.html</loc>
+    <loc>https://dongzl.github.io/about/index_bak.html</loc>
     
     <lastmod>2020-04-09T03:08:42.668Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://dongzl.github.io/about/index_bak.html</loc>
+    <loc>https://dongzl.github.io/about/%E8%91%A3%E5%AE%97%E7%A3%8A%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86.html</loc>
     
     <lastmod>2020-04-09T03:08:42.668Z</lastmod>
     
